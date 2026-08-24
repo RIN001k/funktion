@@ -22,12 +22,12 @@ export async function POST(req: NextRequest) {
       custom_fields: [
         {
           key: "full_name",
-          label: { type: "custom", custom: "Ваше полное имя" },
+          label: { type: "custom", custom: "Full name" },
           type: "text",
         },
         {
           key: "age",
-          label: { type: "custom", custom: "Возраст" },
+          label: { type: "custom", custom: "Age" },
           type: "numeric",
           numeric: { minimum_length: 1, maximum_length: 3 },
         },

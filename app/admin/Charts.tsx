@@ -22,7 +22,7 @@ export default function Charts({
   return (
     <div className="grid grid-cols-2 gap-6">
       <div className="border border-line rounded-sm p-5 bg-white/50">
-        <p className="text-sm text-ink/60 mb-3">Возраст посетителей</p>
+        <p className="text-sm text-ink/60 mb-3">Attendee age</p>
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={ageBuckets}>
             <CartesianGrid strokeDasharray="3 3" stroke="#DFD9C8" />
@@ -35,7 +35,7 @@ export default function Charts({
       </div>
 
       <div className="border border-line rounded-sm p-5 bg-white/50">
-        <p className="text-sm text-ink/60 mb-3">Продажи по дням</p>
+        <p className="text-sm text-ink/60 mb-3">Sales by day</p>
         <ResponsiveContainer width="100%" height={220}>
           <LineChart data={salesByDay}>
             <CartesianGrid strokeDasharray="3 3" stroke="#DFD9C8" />

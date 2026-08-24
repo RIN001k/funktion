@@ -71,9 +71,7 @@ export default function ScanPage() {
 
   return (
     <main className="min-h-screen bg-ink flex flex-col items-center justify-center px-4 py-10">
-      <h1 className="text-paper font-display text-2xl mb-6">
-        Сканирование билетов
-      </h1>
+      <h1 className="text-paper font-display text-2xl mb-6">Scan tickets</h1>
 
       <div
         id="qr-reader"
@@ -89,11 +87,11 @@ export default function ScanPage() {
             } text-white`}
           >
             {result.valid ? (
-              <>Проход разрешён{scannedName ? ` — ${scannedName}` : ""}</>
+              <>Entry allowed{scannedName ? ` — ${scannedName}` : ""}</>
             ) : result.reason === "already_used" ? (
-              "Билет уже использован"
+              "Ticket already used"
             ) : (
-              "Билет не найден"
+              "Ticket not found"
             )}
           </div>
         )}

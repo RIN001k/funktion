@@ -1,9 +1,8 @@
 import "./globals.css";
-import { EVENT_NAME } from "@/lib/stripe";
 
 export const metadata = {
-  title: EVENT_NAME,
-  description: `Билеты на ${EVENT_NAME}`,
+  title: "FUNKTION",
+  description: "Tickets for FUNKTION events",
 };
 
 export default function RootLayout({
@@ -12,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

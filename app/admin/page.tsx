@@ -22,33 +22,33 @@ export default async function AdminPage() {
   return (
     <main className="min-h-screen px-6 py-10 max-w-4xl mx-auto">
       <div className="flex items-center justify-between mb-8">
-        <h1 className="font-display text-3xl">Дашборд</h1>
+        <h1 className="font-display text-3xl">Dashboard</h1>
         <Link
           href="/scan"
           className="text-sm border border-line rounded-sm px-4 py-2 hover:bg-white"
         >
-          Открыть сканер →
+          Open scanner →
         </Link>
       </div>
 
       <div className="grid grid-cols-3 gap-4 mb-10">
-        <Stat label="Продано билетов" value={totalSold.toString()} />
-        <Stat label="Прошли на входе" value={checkedIn.toString()} />
-        <Stat label="Выручка" value={`€${revenue.toFixed(2)}`} />
+        <Stat label="Tickets sold" value={totalSold.toString()} />
+        <Stat label="Checked in" value={checkedIn.toString()} />
+        <Stat label="Revenue" value={`€${revenue.toFixed(2)}`} />
       </div>
 
       <Charts ageBuckets={ageBuckets} salesByDay={salesByDay} />
 
-      <h2 className="font-display text-xl mt-10 mb-4">Все билеты</h2>
+      <h2 className="font-display text-xl mt-10 mb-4">All tickets</h2>
       <div className="border border-line rounded-sm overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-white/60 text-left">
             <tr>
-              <th className="px-4 py-2">Имя</th>
+              <th className="px-4 py-2">Name</th>
               <th className="px-4 py-2">Email</th>
-              <th className="px-4 py-2">Возраст</th>
-              <th className="px-4 py-2">Куплен</th>
-              <th className="px-4 py-2">Статус</th>
+              <th className="px-4 py-2">Age</th>
+              <th className="px-4 py-2">Purchased</th>
+              <th className="px-4 py-2">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -58,17 +58,17 @@ export default async function AdminPage() {
                 <td className="px-4 py-2">{t.email}</td>
                 <td className="px-4 py-2">{t.age ?? "—"}</td>
                 <td className="px-4 py-2">
-                  {new Date(t.created_at).toLocaleString("ru-RU")}
+                  {new Date(t.created_at).toLocaleString("en-GB")}
                 </td>
                 <td className="px-4 py-2">
-                  {t.status === "used" ? "Прошёл" : "Не пришёл"}
+                  {t.status === "used" ? "Checked in" : "Not arrived"}
                 </td>
               </tr>
             ))}
             {list.length === 0 && (
               <tr>
                 <td colSpan={5} className="px-4 py-6 text-center text-ink/50">
-                  Пока никто не купил билет
+                  No tickets sold yet
                 </td>
               </tr>
             )}
@@ -109,7 +109,7 @@ function bucketAges(list: Ticket[]) {
 function bucketByDay(list: Ticket[]) {
   const counts: Record<string, number> = {};
   for (const t of list) {
-    const day = new Date(t.created_at).toLocaleDateString("ru-RU");
+    const day = new Date(t.created_at).toLocaleDateString("en-GB");
     counts[day] = (counts[day] || 0) + 1;
   }
   return Object.entries(counts).map(([day, count]) => ({ day, count }));

@@ -24,7 +24,7 @@ function LoginForm() {
       router.push(next);
       router.refresh();
     } else {
-      setError("Неверный пароль");
+      setError("Wrong password");
       setLoading(false);
     }
   }
@@ -34,8 +34,8 @@ function LoginForm() {
       onSubmit={handleSubmit}
       className="w-full max-w-sm border border-line rounded-sm p-8 bg-paper"
     >
-      <h1 className="font-display text-2xl mb-6">Вход для организатора</h1>
-      <label className="block text-sm text-ink/70 mb-2">Пароль</label>
+      <h1 className="font-display text-2xl mb-6">Organizer sign in</h1>
+      <label className="block text-sm text-ink/70 mb-2">Password</label>
       <input
         type="password"
         autoFocus
@@ -49,7 +49,7 @@ function LoginForm() {
         disabled={loading}
         className="w-full bg-ink text-paper py-2.5 rounded-sm disabled:opacity-50"
       >
-        {loading ? "Секунду…" : "Войти"}
+        {loading ? "One sec…" : "Sign in"}
       </button>
     </form>
   );

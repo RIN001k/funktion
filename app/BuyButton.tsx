@@ -13,11 +13,11 @@ export default function BuyButton() {
       const res = await fetch("/api/checkout", { method: "POST" });
       const data = await res.json();
       if (!res.ok || !data.url) {
-        throw new Error(data.error || "Не удалось начать оплату");
+        throw new Error(data.error || "Could not start checkout");
       }
       window.location.href = data.url;
     } catch (e: any) {
-      setError(e.message || "Что-то пошло не так");
+      setError(e.message || "Something went wrong");
       setLoading(false);
     }
   }
@@ -29,7 +29,7 @@ export default function BuyButton() {
         disabled={loading}
         className="w-full bg-ink text-paper font-body py-3.5 rounded-sm hover:bg-ink/90 transition-colors disabled:opacity-50"
       >
-        {loading ? "Секунду…" : "Купить билет"}
+        {loading ? "One sec…" : "Buy ticket"}
       </button>
       {error && (
         <p className="text-sm text-red-700 mt-3 text-center">{error}</p>

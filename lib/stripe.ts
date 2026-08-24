@@ -12,3 +12,4 @@ export const TICKET_PRICE_CENTS = parseInt(
 );
 export const TICKET_CURRENCY = process.env.TICKET_CURRENCY || "eur";
 export const EVENT_NAME = process.env.EVENT_NAME || "FUNKTION";
+export const EVENT_DATE = process.env.EVENT_DATE || "TBA";

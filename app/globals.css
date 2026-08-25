@@ -1,17 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-display: "Bebas Neue", Impact, sans-serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #f6f3ec;
-  color: #141312;
+  background-color: #0a0a0c;
+  color: #f5f0ec;
+  font-family: var(--font-body);
 }
 
 :focus-visible {
-  outline: 2px solid #b08a3e;
+  outline: 2px solid #fe0187;
   outline-offset: 2px;
+}
+
+/* Outline text for the giant background wordmark */
+.text-stroke-pink {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #fe0187;
+}
+
+@media (min-width: 768px) {
+  .text-stroke-pink {
+    -webkit-text-stroke: 2px #fe0187;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a232b;
+  border-radius: 999px;
 }

@@ -27,12 +27,12 @@ export default function BuyButton() {
       <button
         onClick={handleClick}
         disabled={loading}
-        className="w-full bg-ink text-paper font-body py-3.5 rounded-sm hover:bg-ink/90 transition-colors disabled:opacity-50"
+        className="w-full bg-pink text-ink font-body font-semibold uppercase tracking-[0.1em] text-sm py-4 rounded-full hover:bg-white transition-colors disabled:opacity-50"
       >
         {loading ? "One sec…" : "Buy ticket"}
       </button>
       {error && (
-        <p className="text-sm text-red-700 mt-3 text-center">{error}</p>
+        <p className="text-sm text-pink mt-3 text-center">{error}</p>
       )}
     </div>
   );

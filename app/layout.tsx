@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "FUNKTION",
-  description: "Tickets for FUNKTION events",
+  title: "THE FUNKTION",
+  description: "Tickets for THE FUNKTION",
 };
 
 export default function RootLayout({

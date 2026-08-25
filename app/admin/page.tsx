@@ -20,12 +20,12 @@ export default async function AdminPage() {
   const salesByDay = bucketByDay(list);
 
   return (
-    <main className="min-h-screen px-6 py-10 max-w-4xl mx-auto">
+    <main className="min-h-screen px-6 py-10 max-w-4xl mx-auto text-paper">
       <div className="flex items-center justify-between mb-8">
         <h1 className="font-display text-3xl">Dashboard</h1>
         <Link
           href="/scan"
-          className="text-sm border border-line rounded-sm px-4 py-2 hover:bg-white"
+          className="text-sm border border-lineDark rounded-sm px-4 py-2 hover:border-pink hover:text-pink transition-colors"
         >
           Open scanner →
         </Link>
@@ -40,9 +40,9 @@ export default async function AdminPage() {
       <Charts ageBuckets={ageBuckets} salesByDay={salesByDay} />
 
       <h2 className="font-display text-xl mt-10 mb-4">All tickets</h2>
-      <div className="border border-line rounded-sm overflow-hidden">
+      <div className="border border-lineDark rounded-sm overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-white/60 text-left">
+          <thead className="bg-white/5 text-left">
             <tr>
               <th className="px-4 py-2">Name</th>
               <th className="px-4 py-2">Email</th>
@@ -53,7 +53,7 @@ export default async function AdminPage() {
           </thead>
           <tbody>
             {list.map((t) => (
-              <tr key={t.id} className="border-t border-line">
+              <tr key={t.id} className="border-t border-lineDark">
                 <td className="px-4 py-2">{t.name}</td>
                 <td className="px-4 py-2">{t.email}</td>
                 <td className="px-4 py-2">{t.age ?? "—"}</td>
@@ -67,7 +67,7 @@ export default async function AdminPage() {
             ))}
             {list.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-6 text-center text-ink/50">
+                <td colSpan={5} className="px-4 py-6 text-center text-paper/40">
                   No tickets sold yet
                 </td>
               </tr>
@@ -81,11 +81,11 @@ export default async function AdminPage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-line rounded-sm p-5 bg-white/50">
-      <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">
+    <div className="border border-lineDark rounded-sm p-5 bg-white/5">
+      <p className="text-xs uppercase tracking-wide text-paper/50 mb-1">
         {label}
       </p>
-      <p className="font-display text-2xl">{value}</p>
+      <p className="font-display text-2xl text-pink">{value}</p>
     </div>
   );
 }

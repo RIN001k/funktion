@@ -19,5 +19,7 @@ export type Ticket = {
   status: "valid" | "used";
   checked_in_at: string | null;
   price_paid: number;
+  event_name: string | null;
+  event_date: string | null;
   created_at: string;
 };

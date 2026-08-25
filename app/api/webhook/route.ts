@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { stripe } from "@/lib/stripe";
+import { stripe, EVENT_NAME, EVENT_DATE } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabase";
 import { generateQrPng, generateQrToken } from "@/lib/qr";
 import { sendTicketEmail } from "@/lib/email";
@@ -73,6 +73,8 @@ async function handleCompletedCheckout(session: Stripe.Checkout.Session) {
     qr_token: qrToken,
     status: "valid",
     price_paid: session.amount_total || 0,
+    event_name: EVENT_NAME,
+    event_date: EVENT_DATE,
   });
 
   if (insertError) throw insertError;

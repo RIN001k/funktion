@@ -11,8 +11,12 @@ create table if not exists tickets (
   status text not null default 'valid' check (status in ('valid', 'used')),
   checked_in_at timestamptz,
   price_paid int not null default 0,
+  event_name text,
+  event_date text,
   created_at timestamptz not null default now()
 );
+
+create index if not exists tickets_email_idx on tickets (email);
 
 create index if not exists tickets_qr_token_idx on tickets (qr_token);
 

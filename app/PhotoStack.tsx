@@ -34,7 +34,7 @@ export default function PhotoStack() {
   return (
     <div
       ref={containerRef}
-      className="relative z-10 w-full max-w-md mx-auto max-h-[62vh] overflow-y-auto px-2 py-4 space-y-6"
+      className="relative z-10 w-full max-w-md mx-auto max-h-[62vh] overflow-y-auto no-scrollbar px-2 py-4 space-y-6"
     >
       {photos.map((photo, i) => (
         <div

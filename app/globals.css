@@ -68,3 +68,13 @@ body {
   background: #2a232b;
   border-radius: 999px;
 }
+
+/* Hide the scrollbar on specific scrollable elements (e.g. the photo
+   stack) while keeping the element scrollable. */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

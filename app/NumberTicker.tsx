@@ -18,7 +18,7 @@ const CIRCLED = new Set(["21", "04"]);
 function NumberItem({ n, rotated }: { n: string; rotated?: boolean }) {
   const circled = CIRCLED.has(n);
   const badgeSize = rotated
-    ? "w-6 h-4 rounded-full border border-[#0D0D0D]"
+    ? "w-5 h-3 rounded-full border border-[#0D0D0D]"
     : "w-10 h-6 rounded-full border-[1.5px] border-[#0D0D0D]";
   return (
     <span
@@ -51,7 +51,7 @@ export default function NumberTicker({
   // Horizontal (mobile): a small, static single row — every number
   // fits on screen at once, no scrolling or animation.
   return (
-    <div className="w-full flex flex-row items-center justify-between font-bold text-[11px] leading-[13px] select-none">
+    <div className="w-full flex flex-row items-center justify-between font-bold text-[9px] leading-[11px] select-none">
       {HORIZONTAL_NUMBERS.map((n, i) => (
         <NumberItem key={i} n={n} rotated />
       ))}

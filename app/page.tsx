@@ -39,7 +39,7 @@ export default function HomePage() {
       {/* ============================= MOBILE ============================= */}
       <div className="md:hidden px-5 pt-6 pb-10">
         <div className="flex items-start justify-between mb-24">
-          <h1 className="font-helvetica font-normal text-[43px] leading-[49px]">
+          <h1 className="font-helvetica font-normal text-[28px] leading-[32px]">
             THE
             <br />
             FUNKTION
@@ -47,7 +47,7 @@ export default function HomePage() {
           <BuyTicketsButton />
         </div>
 
-        <nav className="flex flex-col items-center gap-4 font-helvetica font-light text-[38px] leading-[44px] text-center mb-24">
+        <nav className="flex flex-col items-center gap-3 font-helvetica font-light text-[22px] leading-[26px] text-center mb-24">
           <a href="#top">HOME ★</a>
           <a href="#whats-next">WHAT&apos;S NEXT</a>
           <a href="#about">ABOUT</a>

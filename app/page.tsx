@@ -10,21 +10,21 @@ const INTRO_PARAGRAPH =
 function NavLinks({ className = "" }: { className?: string }) {
   return (
     <nav className={className}>
-      <a href="#top" className="block font-extrabold hover:text-pink transition-colors">
+      <a href="#top" className="block font-normal hover:text-pink transition-colors">
         HOME ★
       </a>
       <a
         href="#whats-next"
-        className="block font-extrabold hover:text-pink transition-colors"
+        className="block font-normal hover:text-pink transition-colors"
       >
         WHAT&apos;S NEXT
       </a>
-      <a href="#about" className="block font-extrabold hover:text-pink transition-colors">
+      <a href="#about" className="block font-normal hover:text-pink transition-colors">
         ABOUT
       </a>
       <a
         href="#contact"
-        className="block font-extrabold hover:text-pink transition-colors"
+        className="block font-normal hover:text-pink transition-colors"
       >
         CONTACT
       </a>
@@ -47,16 +47,16 @@ export default function HomePage() {
         </div>
 
         <nav className="flex flex-col items-center gap-4 text-2xl mb-24">
-          <a href="#top" className="font-extrabold">
+          <a href="#top" className="font-normal">
             HOME ★
           </a>
-          <a href="#whats-next" className="font-extrabold">
+          <a href="#whats-next" className="font-normal">
             WHAT&apos;S NEXT
           </a>
-          <a href="#about" className="font-extrabold">
+          <a href="#about" className="font-normal">
             ABOUT
           </a>
-          <a href="#contact" className="font-extrabold">
+          <a href="#contact" className="font-normal">
             CONTACT
           </a>
         </nav>

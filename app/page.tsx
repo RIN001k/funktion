@@ -10,21 +10,21 @@ const INTRO_PARAGRAPH =
 function NavLinks({ className = "" }: { className?: string }) {
   return (
     <nav className={className}>
-      <a href="#top" className="block font-normal hover:text-pink transition-colors">
+      <a href="#top" className="block font-bold text-[31px] leading-[38px] hover:text-[#FF0099] transition-colors">
         HOME ★
       </a>
       <a
         href="#whats-next"
-        className="block font-normal hover:text-pink transition-colors"
+        className="block font-normal text-[31px] leading-[38px] hover:text-[#FF0099] transition-colors"
       >
         WHAT&apos;S NEXT
       </a>
-      <a href="#about" className="block font-normal hover:text-pink transition-colors">
+      <a href="#about" className="block font-normal text-[31px] leading-[38px] hover:text-[#FF0099] transition-colors">
         ABOUT
       </a>
       <a
         href="#contact"
-        className="block font-normal hover:text-pink transition-colors"
+        className="block font-normal text-[31px] leading-[38px] hover:text-[#FF0099] transition-colors"
       >
         CONTACT
       </a>
@@ -38,7 +38,7 @@ export default function HomePage() {
       {/* ============================= MOBILE ============================= */}
       <div className="md:hidden px-5 pt-6 pb-10">
         <div className="flex items-start justify-between mb-24">
-          <h1 className="font-black text-3xl leading-[0.95]">
+          <h1 className="font-helvetica font-normal text-[43px] leading-[49px]">
             THE
             <br />
             FUNKTION
@@ -46,22 +46,14 @@ export default function HomePage() {
           <BuyTicketsButton />
         </div>
 
-        <nav className="flex flex-col items-center gap-4 text-2xl mb-24">
-          <a href="#top" className="font-normal">
-            HOME ★
-          </a>
-          <a href="#whats-next" className="font-normal">
-            WHAT&apos;S NEXT
-          </a>
-          <a href="#about" className="font-normal">
-            ABOUT
-          </a>
-          <a href="#contact" className="font-normal">
-            CONTACT
-          </a>
+        <nav className="flex flex-col items-center gap-4 font-helvetica font-light text-[38px] leading-[44px] text-center mb-24">
+          <a href="#top">HOME ★</a>
+          <a href="#whats-next">WHAT&apos;S NEXT</a>
+          <a href="#about">ABOUT</a>
+          <a href="#contact">CONTACT</a>
         </nav>
 
-        <p className="text-[10px] font-bold uppercase tracking-[0.03em] mb-4">
+        <p className="text-[12px] leading-[15px] font-normal mb-4">
           Klagenfurt, Austria
           <br />
           Since 2025
@@ -72,7 +64,7 @@ export default function HomePage() {
 
         <section id="whats-next" className="pt-6">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-bold text-[26px] leading-[30px]">
+            <h2 className="font-bold text-[30px] leading-[36px]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
             </h2>
             <BuyTicketsButton />
@@ -98,7 +90,7 @@ export default function HomePage() {
             />
           </div>
 
-          <p className="text-center text-[10px] tracking-[0.03em] mb-10">
+          <p className="text-center text-[12px] leading-[15px] mb-10">
             SCROLL TO EXPLORE
             <br />
             <span aria-hidden>↓</span>
@@ -109,7 +101,7 @@ export default function HomePage() {
 
         <section id="about" className="pt-10">
           <div className="flex items-center justify-between mb-10">
-            <h2 className="font-bold text-[26px] leading-[30px]">ABOUT</h2>
+            <h2 className="font-bold text-[30px] leading-[36px]">ABOUT</h2>
             <BuyTicketsButton />
           </div>
 
@@ -125,18 +117,18 @@ export default function HomePage() {
         </section>
 
         <section id="contact">
-          <h2 className="font-black text-3xl leading-[1.05] mb-4">
+          <h2 className="font-bold text-[43px] leading-[52px] mb-4">
             LET&apos;S MAKE
             <br />
             SOMETHING HAPPEN.
           </h2>
-          <p className="text-sm leading-relaxed mb-4">
+          <p className="text-[21px] leading-[26px] font-medium mb-4">
             Brands, venues, artists or just a good idea — we&apos;re always
             open to something new.
           </p>
           <a
             href="mailto:thefunktion9020@gmail.com"
-            className="text-[11px] font-bold tracking-[0.03em] hover:text-pink transition-colors"
+            className="text-[11px] leading-[13px] font-bold hover:text-[#FF0099] transition-colors"
           >
             [CONTACT]
           </a>
@@ -147,10 +139,10 @@ export default function HomePage() {
       <div className="hidden md:block px-10 lg:px-16 pt-12 pb-16">
         <div className="flex items-start justify-between mb-8">
           <div>
-            <h1 className="font-black text-4xl lg:text-5xl mb-8">
+            <h1 className="font-bold text-[44.8px] leading-[54px] mb-8">
               THE FUNKTION
             </h1>
-            <NavLinks className="flex flex-col gap-3 text-2xl lg:text-3xl" />
+            <NavLinks className="flex flex-col gap-3" />
           </div>
           <NumberTicker orientation="vertical" />
         </div>
@@ -160,7 +152,7 @@ export default function HomePage() {
 
         <section id="whats-next" className="pt-10">
           <div className="flex items-center justify-between mb-14">
-            <h2 className="font-bold text-[30px] leading-[36px]">
+            <h2 className="font-bold text-[44.8px] leading-[54px] tracking-[0.04em]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
             </h2>
             <BuyTicketsButton />
@@ -179,7 +171,9 @@ export default function HomePage() {
                   key={i}
                   src={src}
                   alt="THE FUNKTION — past night"
-                  className="w-full aspect-[4/3] object-cover"
+                  className={`w-full aspect-[4/3] object-cover ${
+                    i !== 1 ? "scale-x-[-1]" : ""
+                  }`}
                 />
               )
             )}
@@ -192,13 +186,17 @@ export default function HomePage() {
 
         <section id="about" className="pt-16">
           <div className="flex items-center justify-between mb-14">
-            <h2 className="font-bold text-[30px] leading-[36px]">ABOUT US</h2>
+            <h2 className="font-bold text-[44.8px] leading-[54px] tracking-[0.04em]">ABOUT US</h2>
             <BuyTicketsButton />
           </div>
 
           <AboutTextCollage />
 
-          <p className="text-center text-[10px] tracking-[0.03em] mt-16">
+          <div className="max-w-2xl mx-auto mt-16">
+            <NumberTicker orientation="horizontal" />
+          </div>
+
+          <p className="text-center text-[12px] leading-[15px] mt-16">
             SCROLL TO EXPLORE
             <br />
             <span aria-hidden>↓</span>
@@ -214,18 +212,18 @@ export default function HomePage() {
         </div>
 
         <section id="contact" className="mb-20">
-          <h2 className="font-black text-5xl lg:text-6xl leading-[1.05] mb-6">
+          <h2 className="font-bold text-[44.8px] leading-[54px] mb-6">
             LET&apos;S MAKE
             <br />
             SOMETHING HAPPEN.
           </h2>
-          <p className="text-base leading-relaxed max-w-md mb-3">
+          <p className="text-[21px] leading-[26px] font-medium max-w-md mb-3">
             Brands, venues, artists or just a good idea — we&apos;re always
             open to something new.
           </p>
           <a
             href="mailto:thefunktion9020@gmail.com"
-            className="text-xs font-bold tracking-[0.03em] hover:text-pink transition-colors"
+            className="text-[11px] leading-[13px] font-bold hover:text-[#FF0099] transition-colors"
           >
             [CONTACT]
           </a>

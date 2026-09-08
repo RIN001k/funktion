@@ -8,7 +8,7 @@ module.exports = {
         paper: "#FFFFFF",
         pink: "#FE0187",
         pinkDeep: "#B4005F",
-        line: "#DEDAD2",
+        line: "#1F1F1F",
         lineDark: "#2A232B",
         pop: "#FE0187",
         gold: "#FE0187",

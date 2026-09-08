@@ -29,7 +29,7 @@ export default function HomePage() {
           <a href="#contact">CONTACT</a>
         </nav>
 
-        <p className="text-[10px] leading-[13px] font-normal mb-4">
+        <p className="text-[10px] leading-[13px] font-normal mb-10">
           Klagenfurt, Austria
           <br />
           Since 2025

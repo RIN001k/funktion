@@ -3,6 +3,7 @@ import NumberTicker from "./NumberTicker";
 import EventTickerBar from "./EventTickerBar";
 import AboutTextCollage from "./AboutTextCollage";
 import IndexRule from "./IndexRule";
+import DesktopCanvas from "./DesktopCanvas";
 
 const INTRO_PARAGRAPH =
   "the funktion is an independent event collective based in Klagenfurt, Austria. We create events people actually want to go to.";
@@ -138,97 +139,8 @@ export default function HomePage() {
       </div>
 
       {/* ============================= DESKTOP ============================= */}
-      <div className="hidden md:block px-10 lg:px-16 pt-12 pb-16">
-        <div className="flex items-start justify-between gap-8">
-          <div>
-            <h1 className="font-bold text-[44.8px] leading-[54px] mb-8">
-              THE FUNKTION
-            </h1>
-            <NavLinks className="flex flex-col gap-3" />
-          </div>
-
-          <div className="-mt-6">
-            <NumberTicker orientation="vertical" />
-          </div>
-        </div>
-
-        <div className="border-t border-line mt-16" />
-        <EventTickerBar />
-
-        <section id="whats-next" className="pt-24">
-          <div className="flex items-center justify-between mb-14">
-            <h2 className="font-bold text-[44.8px] leading-[54px] tracking-[0.04em]">
-              WHAT&apos;S NEXT <span aria-hidden>↘</span>
-            </h2>
-            <BuyTicketsButton />
-          </div>
-
-          <p className="text-center text-[14px] leading-[17px] font-helvetica font-normal lowercase max-w-md mx-auto mb-2">
-            {INTRO_PARAGRAPH}
-          </p>
-          <p className="text-center mb-10">—</p>
-
-          <div className="grid grid-cols-3 gap-6 mb-10">
-            {["/gallery/v2/desktop-1.jpg", "/gallery/v2/desktop-2.jpg", "/gallery/v2/desktop-1.jpg"].map(
-              (src, i) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={i}
-                  src={src}
-                  alt="THE FUNKTION — past night"
-                  className={`w-full aspect-[4/3] object-cover ${
-                    i !== 1 ? "scale-x-[-1]" : ""
-                  }`}
-                />
-              )
-            )}
-          </div>
-        </section>
-
-        <div className="mt-24">
-          <IndexRule noLine />
-        </div>
-
-        <section id="about" className="pt-24">
-          <div className="flex items-center justify-between mb-14">
-            <h2 className="font-bold text-[44.8px] leading-[54px] tracking-[0.04em]">ABOUT US</h2>
-            <BuyTicketsButton />
-          </div>
-
-          <AboutTextCollage />
-
-          <p className="text-center text-[12px] leading-[15px] mt-16">
-            SCROLL TO EXPLORE
-            <br />
-            <span aria-hidden>↓</span>
-          </p>
-        </section>
-
-        <div className="mt-16">
-          <IndexRule />
-        </div>
-
-        <div className="flex justify-end mt-10 mb-16">
-          <BuyTicketsButton />
-        </div>
-
-        <section id="contact" className="mb-20">
-          <h2 className="font-bold text-[44.8px] leading-[54px] mb-6">
-            LET&apos;S MAKE
-            <br />
-            SOMETHING HAPPEN.
-          </h2>
-          <p className="text-[21px] leading-[26px] font-medium max-w-md mb-3">
-            Brands, venues, artists or just a good idea — we&apos;re always
-            open to something new.
-          </p>
-          <a
-            href="mailto:thefunktion9020@gmail.com"
-            className="text-[11px] leading-[13px] font-bold hover:text-[#FF0099] transition-colors"
-          >
-            [CONTACT]
-          </a>
-        </section>
+      <div className="hidden md:block">
+        <DesktopCanvas />
       </div>
     </main>
   );

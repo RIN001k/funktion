@@ -19,7 +19,7 @@ function NumberItem({ n, rotated }: { n: string; rotated?: boolean }) {
   const circled = CIRCLED.has(n);
   const badgeSize = rotated
     ? "w-6 h-4 rounded-full border border-[#0D0D0D]"
-    : "w-14 h-9 rounded-full border-[1.5px] border-[#0D0D0D]";
+    : "w-10 h-6 rounded-full border-[1.5px] border-[#0D0D0D]";
   return (
     <span
       className={`inline-flex items-center justify-center shrink-0 ${
@@ -40,7 +40,7 @@ export default function NumberTicker({
 
   if (isVertical) {
     return (
-      <div className="flex flex-col items-end gap-2 font-bold text-[27px] leading-[33px] select-none">
+      <div className="flex flex-col items-end gap-0 font-bold text-[20px] leading-[24px] select-none">
         {VERTICAL_NUMBERS.map((n, i) => (
           <NumberItem key={i} n={n} />
         ))}

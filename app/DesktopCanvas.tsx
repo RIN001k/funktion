@@ -118,19 +118,19 @@ export default function DesktopCanvas() {
     <ScaledCanvas width={DESIGN_WIDTH} height={DESIGN_HEIGHT}>
       <div style={{ position: "relative", width: DESIGN_WIDTH, height: DESIGN_HEIGHT, background: "#FFFFFF" }}>
         {/* Wordmark + nav */}
-        <T href="#top" left={40} top={230} width={394} weight={700} size={44.8} lh={54}>
+        <T href="#top" left={40} top={230} width={480} weight={700} size={44.8} lh={54}>
           THE FUNKTION
         </T>
-        <T href="#top" left={40} top={345} width={284} weight={700} size={31.36} lh={38}>
+        <T href="#top" left={40} top={345} width={340} weight={700} size={31.36} lh={38}>
           HOME ★
         </T>
-        <T href="#whats-next" left={40} top={417} width={284} weight={400} size={31.36} lh={38}>
+        <T href="#whats-next" left={40} top={417} width={340} weight={400} size={31.36} lh={38}>
           WHAT&apos;S NEXT
         </T>
-        <T href="#about" left={40} top={488} width={284} weight={400} size={31.36} lh={38}>
+        <T href="#about" left={40} top={488} width={340} weight={400} size={31.36} lh={38}>
           ABOUT
         </T>
-        <T href="#contact" left={40} top={560} width={284} weight={400} size={31.36} lh={38}>
+        <T href="#contact" left={40} top={560} width={340} weight={400} size={31.36} lh={38}>
           CONTACT
         </T>
 
@@ -176,7 +176,7 @@ export default function DesktopCanvas() {
         </T>
 
         {/* WHAT'S NEXT */}
-        <T left={40} top={1096} width={350} weight={700} size={44.8} lh={54} tracking="0.04em">
+        <T left={40} top={1096} width={450} weight={700} size={44.8} lh={54} tracking="0.04em">
           WHAT&apos;S NEXT ↘
         </T>
         <TicketButton left={1180} top={1096} />
@@ -243,7 +243,7 @@ export default function DesktopCanvas() {
         </T>
 
         {/* ABOUT US */}
-        <T left={50} top={2061} width={314} weight={700} size={44.8} lh={54} tracking="0.04em">
+        <T left={50} top={2061} width={400} weight={700} size={44.8} lh={54} tracking="0.04em">
           ABOUT US
         </T>
         <TicketButton left={1198} top={2051} />
@@ -288,9 +288,23 @@ export default function DesktopCanvas() {
           the funktion is an independent event collective based in klagenfurt,
           austria. we create events people actually want to go to.
         </T>
+        <T
+          left={1440 / 2 - 90 / 2 + 67}
+          top={2450}
+          width={90}
+          font="Helvetica Neue, Helvetica, Arial, sans-serif"
+          weight={300}
+          size={14}
+          lh={17}
+          align="right"
+          transform="lowercase"
+        >
+          the funktion is an independent event collective based in klagenfurt,
+          austria. we create events people actually want to go to.
+        </T>
 
-        <T left={660} top={2733} width={121} font="Helvetica Neue, Helvetica, Arial, sans-serif" weight={300} size={12} lh={15}>
-          SCROLL TO EXPLORE ↓
+        <T left={630} top={2733} width={180} align="center" font="Helvetica Neue, Helvetica, Arial, sans-serif" weight={300} size={12} lh={15}>
+          SCROLL TO EXPLORE{"\n"}↓
         </T>
 
         <T left={50} top={2868} width={340} weight={400} size={9} lh={11} opacity={0.45}>
@@ -300,7 +314,7 @@ export default function DesktopCanvas() {
         <TicketButton left={1209} top={2967} />
 
         {/* CONTACT / CTA */}
-        <T left={64} top={3126} width={485} weight={700} size={44.8} lh={54}>
+        <T left={64} top={3126} width={620} weight={700} size={44.8} lh={54}>
           LET&apos;S MAKE{"\n"}SOMETHING HAPPEN.
         </T>
         <T left={64} top={3250} width={457} weight={500} size={21.41} lh={26}>

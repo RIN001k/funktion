@@ -22,14 +22,14 @@ export default function HomePage() {
           <BuyTicketsButton />
         </div>
 
-        <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mb-24">
+        <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mb-32">
           <a href="#top">HOME ★</a>
           <a href="#whats-next">WHAT&apos;S NEXT</a>
           <a href="#about">ABOUT</a>
           <a href="#contact">CONTACT</a>
         </nav>
 
-        <p className="text-[10px] leading-[13px] font-normal mb-10">
+        <p className="text-[10px] leading-[13px] font-normal mb-2">
           Klagenfurt, Austria
           <br />
           Since 2025
@@ -39,19 +39,19 @@ export default function HomePage() {
         <EventTickerBar />
 
         <section id="whats-next" className="pt-16">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-14">
             <h2 className="font-bold text-[18px] leading-[22px]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
             </h2>
             <BuyTicketsButton />
           </div>
 
-          <p className="text-center text-[11px] leading-[14px] font-helvetica font-normal lowercase mb-2 px-4">
+          <p className="text-center text-[11px] leading-[14px] font-helvetica font-normal lowercase mb-2 max-w-[220px] mx-auto">
             {INTRO_PARAGRAPH}
           </p>
           <p className="text-center mb-6">—</p>
 
-          <div className="space-y-3 mb-6 max-w-[260px] mx-auto">
+          <div className="space-y-3 mb-6 max-w-[220px] mx-auto">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/gallery/v2/mobile-1.jpg"
@@ -89,7 +89,7 @@ export default function HomePage() {
             <NumberTicker orientation="horizontal" />
           </div>
 
-          <div className="flex justify-end mb-16">
+          <div className="flex justify-end mt-6 mb-24">
             <BuyTicketsButton />
           </div>
         </section>

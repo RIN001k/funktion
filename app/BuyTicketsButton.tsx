@@ -26,7 +26,7 @@ export default function BuyTicketsButton({
     <button
       onClick={handleClick}
       disabled={loading}
-      className={`inline-flex items-center gap-1.5 bg-pink text-white font-bold uppercase tracking-[0.05em] text-xs px-5 py-3 rounded-full hover:bg-ink transition-colors disabled:opacity-60 whitespace-nowrap ${className}`}
+      className={`inline-flex items-center gap-1.5 bg-pink text-white font-bold uppercase tracking-[0.05em] text-xs px-5 py-3 rounded-[16px] hover:bg-ink transition-colors disabled:opacity-60 whitespace-nowrap ${className}`}
     >
       {loading ? "One sec…" : "Buy Tickets"}
       {!loading && <span aria-hidden>↗</span>}

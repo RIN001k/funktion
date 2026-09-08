@@ -72,13 +72,13 @@ export default function HomePage() {
 
         <section id="whats-next" className="pt-6">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-black text-2xl">
+            <h2 className="font-bold text-[26px] leading-[30px]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
             </h2>
             <BuyTicketsButton />
           </div>
 
-          <p className="text-center text-sm leading-relaxed mb-2 px-4">
+          <p className="text-center text-[14px] leading-[17px] font-helvetica font-normal lowercase mb-2 px-4">
             {INTRO_PARAGRAPH}
           </p>
           <p className="text-center mb-6">—</p>
@@ -109,7 +109,7 @@ export default function HomePage() {
 
         <section id="about" className="pt-10">
           <div className="flex items-center justify-between mb-10">
-            <h2 className="font-black text-2xl">ABOUT</h2>
+            <h2 className="font-bold text-[26px] leading-[30px]">ABOUT</h2>
             <BuyTicketsButton />
           </div>
 
@@ -141,12 +141,6 @@ export default function HomePage() {
             [CONTACT]
           </a>
         </section>
-
-        <div className="mt-20">
-          <div className="border-t border-line" />
-          <EventTickerBar />
-          <IndexRule />
-        </div>
       </div>
 
       {/* ============================= DESKTOP ============================= */}
@@ -166,13 +160,13 @@ export default function HomePage() {
 
         <section id="whats-next" className="pt-10">
           <div className="flex items-center justify-between mb-14">
-            <h2 className="font-black text-4xl lg:text-5xl">
+            <h2 className="font-bold text-[30px] leading-[36px]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
             </h2>
             <BuyTicketsButton />
           </div>
 
-          <p className="text-center text-sm leading-relaxed max-w-md mx-auto mb-2">
+          <p className="text-center text-[14px] leading-[17px] font-helvetica font-normal lowercase max-w-md mx-auto mb-2">
             {INTRO_PARAGRAPH}
           </p>
           <p className="text-center mb-10">—</p>
@@ -198,7 +192,7 @@ export default function HomePage() {
 
         <section id="about" className="pt-16">
           <div className="flex items-center justify-between mb-14">
-            <h2 className="font-black text-4xl lg:text-5xl">ABOUT US</h2>
+            <h2 className="font-bold text-[30px] leading-[36px]">ABOUT US</h2>
             <BuyTicketsButton />
           </div>
 
@@ -236,10 +230,6 @@ export default function HomePage() {
             [CONTACT]
           </a>
         </section>
-
-        <div className="border-t border-line" />
-        <EventTickerBar />
-        <IndexRule />
       </div>
     </main>
   );

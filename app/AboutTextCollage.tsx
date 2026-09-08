@@ -3,12 +3,12 @@ const PARAGRAPH =
 
 export default function AboutTextCollage() {
   return (
-    <div className="flex justify-center gap-8 text-[11px] leading-relaxed text-ink/80">
-      <div className="flex flex-col gap-10 w-[130px] text-right">
+    <div className="flex justify-center gap-6 text-[9px] leading-[1.6] font-helvetica lowercase text-ink/70">
+      <div className="flex flex-col gap-8 w-[110px] text-right">
         <p>{PARAGRAPH}</p>
         <p>{PARAGRAPH}</p>
       </div>
-      <div className="flex flex-col gap-10 w-[130px] text-right mt-10">
+      <div className="flex flex-col gap-8 w-[110px] text-right mt-8">
         <p>{PARAGRAPH}</p>
         <p>{PARAGRAPH}</p>
       </div>

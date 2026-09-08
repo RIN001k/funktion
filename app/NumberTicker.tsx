@@ -11,7 +11,7 @@ function NumberItem({ n }: { n: string }) {
     <span
       className={
         CIRCLED.has(n)
-          ? "inline-flex items-center justify-center w-8 h-8 rounded-full border-2 border-ink shrink-0"
+          ? "inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-ink shrink-0"
           : "shrink-0"
       }
     >
@@ -44,7 +44,7 @@ export default function NumberTicker({
   if (isVertical) {
     return (
       <div className="h-[420px] overflow-hidden select-none">
-        <div className="flex flex-col items-end gap-1 font-black text-lg animate-marquee-y">
+        <div className="flex flex-col items-end gap-1 font-black text-base animate-marquee-y">
           {track}
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function NumberTicker({
 
   return (
     <div className="w-full overflow-hidden select-none">
-      <div className="flex flex-row gap-x-3 font-black text-base w-max animate-marquee-x">
+      <div className="flex flex-row gap-x-2.5 font-black text-sm w-max animate-marquee-x">
         {track}
       </div>
     </div>

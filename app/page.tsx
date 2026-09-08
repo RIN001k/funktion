@@ -1,140 +1,246 @@
-import {
-  TICKET_PRICE_CENTS,
-  TICKET_CURRENCY,
-  EVENT_DATE,
-} from "@/lib/stripe";
-import BuyButton from "./BuyButton";
-import PhotoStack from "./PhotoStack";
-import SiteNav from "./SiteNav";
+import BuyTicketsButton from "./BuyTicketsButton";
+import NumberTicker from "./NumberTicker";
+import EventTickerBar from "./EventTickerBar";
+import AboutTextCollage from "./AboutTextCollage";
+import IndexRule from "./IndexRule";
+
+const INTRO_PARAGRAPH =
+  "the funktion is an independent event collective based in Klagenfurt, Austria. We create events people actually want to go to.";
+
+function NavLinks({ className = "" }: { className?: string }) {
+  return (
+    <nav className={className}>
+      <a href="#top" className="block font-extrabold hover:text-pink transition-colors">
+        HOME ★
+      </a>
+      <a
+        href="#whats-next"
+        className="block font-extrabold hover:text-pink transition-colors"
+      >
+        WHAT&apos;S NEXT
+      </a>
+      <a href="#about" className="block font-extrabold hover:text-pink transition-colors">
+        ABOUT
+      </a>
+      <a
+        href="#contact"
+        className="block font-extrabold hover:text-pink transition-colors"
+      >
+        CONTACT
+      </a>
+    </nav>
+  );
+}
 
 export default function HomePage() {
-  const price = (TICKET_PRICE_CENTS / 100).toFixed(2);
-  const currencySymbol =
-    TICKET_CURRENCY.toLowerCase() === "eur" ? "€" : TICKET_CURRENCY.toUpperCase();
-
   return (
-    <main id="top" className="min-h-screen overflow-x-hidden">
-      <SiteNav />
-
-      {/* HERO — giant outline wordmark behind a scrollable stack of photos */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-40 sm:pt-32 pb-16">
-        <div
-          aria-hidden
-          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center overflow-hidden"
-        >
-          <span className="font-display text-stroke-pink text-[11vw] leading-none whitespace-nowrap opacity-80">
-            THE FUNKTION
-          </span>
+    <main id="top" className="bg-paper text-ink">
+      {/* ============================= MOBILE ============================= */}
+      <div className="md:hidden px-5 pt-6 pb-10">
+        <div className="flex items-start justify-between mb-24">
+          <h1 className="font-black text-3xl leading-[0.95]">
+            THE
+            <br />
+            FUNKTION
+          </h1>
+          <BuyTicketsButton />
         </div>
 
-        <p className="relative z-10 uppercase tracking-[0.3em] text-xs text-pink mb-6">
-          Tickets on sale now
+        <nav className="flex flex-col items-center gap-4 text-2xl mb-24">
+          <a href="#top" className="font-extrabold">
+            HOME ★
+          </a>
+          <a href="#whats-next" className="font-extrabold">
+            WHAT&apos;S NEXT
+          </a>
+          <a href="#about" className="font-extrabold">
+            ABOUT
+          </a>
+          <a href="#contact" className="font-extrabold">
+            CONTACT
+          </a>
+        </nav>
+
+        <p className="text-[10px] font-bold uppercase tracking-[0.03em] mb-4">
+          Klagenfurt, Austria
+          <br />
+          Since 2025
         </p>
 
-        <PhotoStack />
+        <div className="border-t border-line" />
+        <EventTickerBar />
 
-        <div className="relative z-10 mt-8">
-          <a
-            href="#tickets"
-            className="inline-block bg-pink text-ink font-body font-semibold uppercase tracking-[0.1em] text-sm px-8 py-4 rounded-full hover:bg-white transition-colors"
-          >
-            Get tickets
-          </a>
-        </div>
-      </section>
-
-      {/* TICKETS */}
-      <section
-        id="tickets"
-        className="relative px-6 py-24 border-t border-lineDark"
-      >
-        <div className="max-w-md mx-auto">
-          <p className="uppercase tracking-[0.3em] text-xs text-pink mb-3 text-center">
-            Ticket
-          </p>
-          <h2 className="font-display text-4xl text-center mb-10">
-            {EVENT_DATE}
-          </h2>
-
-          <div className="border border-lineDark bg-white/[0.03] rounded-sm p-8">
-            <p className="text-paper/70 mb-8 leading-relaxed text-sm">
-              One ticket, one entry. After payment we&apos;ll email you a
-              personal QR code — show it at the door, printed or on your
-              phone.
-            </p>
-
-            <div className="flex items-baseline justify-between border-t border-lineDark pt-6 mb-8">
-              <span className="text-sm text-paper/60">Price</span>
-              <span className="font-display text-3xl text-pink">
-                {currencySymbol}
-                {price}
-              </span>
-            </div>
-
-            <BuyButton />
-
-            <p className="text-xs text-paper/40 mt-6 text-center">
-              Payment is handled by Stripe. We never see your card details.
-            </p>
+        <section id="whats-next" className="pt-6">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="font-black text-2xl">
+              WHAT&apos;S NEXT <span aria-hidden>↘</span>
+            </h2>
+            <BuyTicketsButton />
           </div>
-        </div>
-      </section>
 
-      {/* ABOUT */}
-      <section
-        id="about"
-        className="relative px-6 py-24 border-t border-lineDark"
-      >
-        <div className="max-w-lg mx-auto text-center">
-          <p className="uppercase tracking-[0.3em] text-xs text-pink mb-3">
-            About
+          <p className="text-center text-sm leading-relaxed mb-2 px-4">
+            {INTRO_PARAGRAPH}
           </p>
-          <h2 className="font-display text-4xl mb-6">The Function</h2>
-          <p className="text-paper/70 leading-relaxed">
-            THE FUNKTION started as a night between friends and turned into
-            something people keep showing up for. Fog, lasers, a couple of
-            dragons watching from the walls, and a sound system that
-            doesn&apos;t hold back. No dress code, no bad music — just the
-            function.
-          </p>
-        </div>
-      </section>
+          <p className="text-center mb-6">—</p>
 
-      {/* CONTACT */}
-      <section
-        id="contact"
-        className="relative px-6 py-24 border-t border-lineDark"
-      >
-        <div className="max-w-lg mx-auto text-center">
-          <p className="uppercase tracking-[0.3em] text-xs text-pink mb-3">
-            Contact
+          <div className="space-y-4 mb-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/gallery/v2/mobile-1.jpg"
+              alt="THE FUNKTION — past night"
+              className="w-full aspect-[4/3] object-cover"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/gallery/v2/mobile-2.jpg"
+              alt="THE FUNKTION — past night"
+              className="w-full aspect-[4/3] object-cover"
+            />
+          </div>
+
+          <p className="text-center text-[10px] tracking-[0.03em] mb-10">
+            SCROLL TO EXPLORE
+            <br />
+            <span aria-hidden>↓</span>
           </p>
-          <h2 className="font-display text-4xl mb-6">Get in touch</h2>
-          <p className="text-paper/70 leading-relaxed mb-8">
-            Questions about tickets, bookings, or getting on the list —
-            reach out.
+        </section>
+
+        <IndexRule />
+
+        <section id="about" className="pt-10">
+          <div className="flex items-center justify-between mb-10">
+            <h2 className="font-black text-2xl">ABOUT</h2>
+            <BuyTicketsButton />
+          </div>
+
+          <AboutTextCollage />
+
+          <div className="mt-16 mb-8 overflow-x-auto no-scrollbar">
+            <NumberTicker orientation="horizontal" />
+          </div>
+
+          <div className="flex justify-center mb-16">
+            <BuyTicketsButton />
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2 className="font-black text-3xl leading-[1.05] mb-4">
+            LET&apos;S MAKE
+            <br />
+            SOMETHING HAPPEN.
+          </h2>
+          <p className="text-sm leading-relaxed mb-4">
+            Brands, venues, artists or just a good idea — we&apos;re always
+            open to something new.
           </p>
           <a
             href="mailto:thefunktion9020@gmail.com"
-            className="inline-block border border-pink text-pink font-body uppercase tracking-[0.1em] text-sm px-8 py-3.5 rounded-full hover:bg-pink hover:text-ink transition-colors"
+            className="text-[11px] font-bold tracking-[0.03em] hover:text-pink transition-colors"
           >
-            thefunktion9020@gmail.com
+            [CONTACT]
           </a>
-        </div>
-      </section>
+        </section>
 
-      {/* FOOTER */}
-      <footer className="px-6 py-10 border-t border-lineDark flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-paper/40 uppercase tracking-[0.15em]">
-        <span>© {new Date().getFullYear()} The Funktion</span>
-        <div className="flex gap-6">
-          <a href="#about" className="hover:text-pink transition-colors">
-            About
-          </a>
-          <a href="#contact" className="hover:text-pink transition-colors">
-            Contact
-          </a>
+        <div className="mt-20">
+          <div className="border-t border-line" />
+          <EventTickerBar />
+          <IndexRule />
         </div>
-      </footer>
+      </div>
+
+      {/* ============================= DESKTOP ============================= */}
+      <div className="hidden md:block px-10 lg:px-16 pt-12 pb-16">
+        <div className="flex items-start justify-between mb-8">
+          <div>
+            <h1 className="font-black text-4xl lg:text-5xl mb-8">
+              THE FUNKTION
+            </h1>
+            <NavLinks className="flex flex-col gap-3 text-2xl lg:text-3xl" />
+          </div>
+          <NumberTicker orientation="vertical" />
+        </div>
+
+        <div className="border-t border-line mt-16" />
+        <EventTickerBar />
+
+        <section id="whats-next" className="pt-10">
+          <div className="flex items-center justify-between mb-14">
+            <h2 className="font-black text-4xl lg:text-5xl">
+              WHAT&apos;S NEXT <span aria-hidden>↘</span>
+            </h2>
+            <BuyTicketsButton />
+          </div>
+
+          <p className="text-center text-sm leading-relaxed max-w-md mx-auto mb-2">
+            {INTRO_PARAGRAPH}
+          </p>
+          <p className="text-center mb-10">—</p>
+
+          <div className="grid grid-cols-3 gap-6 mb-10">
+            {["/gallery/v2/desktop-1.jpg", "/gallery/v2/desktop-2.jpg", "/gallery/v2/desktop-1.jpg"].map(
+              (src, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={i}
+                  src={src}
+                  alt="THE FUNKTION — past night"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+              )
+            )}
+          </div>
+        </section>
+
+        <div className="mt-16">
+          <IndexRule />
+        </div>
+
+        <section id="about" className="pt-16">
+          <div className="flex items-center justify-between mb-14">
+            <h2 className="font-black text-4xl lg:text-5xl">ABOUT US</h2>
+            <BuyTicketsButton />
+          </div>
+
+          <AboutTextCollage />
+
+          <p className="text-center text-[10px] tracking-[0.03em] mt-16">
+            SCROLL TO EXPLORE
+            <br />
+            <span aria-hidden>↓</span>
+          </p>
+        </section>
+
+        <div className="mt-16">
+          <IndexRule />
+        </div>
+
+        <div className="flex justify-end mt-10 mb-16">
+          <BuyTicketsButton />
+        </div>
+
+        <section id="contact" className="mb-20">
+          <h2 className="font-black text-5xl lg:text-6xl leading-[1.05] mb-6">
+            LET&apos;S MAKE
+            <br />
+            SOMETHING HAPPEN.
+          </h2>
+          <p className="text-base leading-relaxed max-w-md mb-3">
+            Brands, venues, artists or just a good idea — we&apos;re always
+            open to something new.
+          </p>
+          <a
+            href="mailto:thefunktion9020@gmail.com"
+            className="text-xs font-bold tracking-[0.03em] hover:text-pink transition-colors"
+          >
+            [CONTACT]
+          </a>
+        </section>
+
+        <div className="border-t border-line" />
+        <EventTickerBar />
+        <IndexRule />
+      </div>
     </main>
   );
 }

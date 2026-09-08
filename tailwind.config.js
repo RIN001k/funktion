@@ -4,17 +4,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0A0C",
-        paper: "#F5F0EC",
+        ink: "#0E0E0E",
+        paper: "#FAF9F6",
         pink: "#FE0187",
         pinkDeep: "#B4005F",
-        line: "#E4E1D8",
+        line: "#DEDAD2",
         lineDark: "#2A232B",
         pop: "#FE0187",
         gold: "#FE0187",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Impact", "sans-serif"],
+        display: ["var(--font-body)", "-apple-system", "Segoe UI", "sans-serif"],
         body: ["var(--font-body)", "-apple-system", "Segoe UI", "sans-serif"],
       },
     },

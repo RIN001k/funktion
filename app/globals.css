@@ -53,6 +53,39 @@ body {
   display: none;
 }
 
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-x {
+  animation: marquee-x 26s linear infinite;
+}
+
+.animate-marquee-y {
+  animation: marquee-y 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-x,
+  .animate-marquee-y {
+    animation: none;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

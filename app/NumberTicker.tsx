@@ -17,15 +17,14 @@ const CIRCLED = new Set(["21", "04"]);
 
 function NumberItem({ n, rotated }: { n: string; rotated?: boolean }) {
   const circled = CIRCLED.has(n);
+  const badgeSize = rotated
+    ? "w-6 h-4 rounded-full border border-[#0D0D0D]"
+    : "w-14 h-9 rounded-full border-[1.5px] border-[#0D0D0D]";
   return (
     <span
       className={`inline-flex items-center justify-center shrink-0 ${
         rotated ? "rotate-90" : ""
-      } ${
-        circled
-          ? "w-14 h-9 rounded-full border-[1.5px] border-[#0D0D0D]"
-          : ""
-      }`}
+      } ${circled ? badgeSize : ""}`}
     >
       {n}
     </span>
@@ -38,37 +37,24 @@ export default function NumberTicker({
   orientation: "vertical" | "horizontal";
 }) {
   const isVertical = orientation === "vertical";
-  const numbers = isVertical ? VERTICAL_NUMBERS : HORIZONTAL_NUMBERS;
-
-  // Two back-to-back copies of the sequence create a seamless infinite
-  // loop: the track animates exactly -50% (one full copy's length),
-  // then snaps back to 0 with no visible seam.
-  const track = (
-    <>
-      {numbers.map((n, i) => (
-        <NumberItem key={`a-${i}`} n={n} rotated={!isVertical} />
-      ))}
-      {numbers.map((n, i) => (
-        <NumberItem key={`b-${i}`} n={n} rotated={!isVertical} />
-      ))}
-    </>
-  );
 
   if (isVertical) {
     return (
-      <div className="h-[420px] overflow-hidden select-none">
-        <div className="flex flex-col items-end gap-2 font-bold text-[27px] leading-[33px] animate-marquee-y">
-          {track}
-        </div>
+      <div className="flex flex-col items-end gap-2 font-bold text-[27px] leading-[33px] select-none">
+        {VERTICAL_NUMBERS.map((n, i) => (
+          <NumberItem key={i} n={n} />
+        ))}
       </div>
     );
   }
 
+  // Horizontal (mobile): a small, static single row — every number
+  // fits on screen at once, no scrolling or animation.
   return (
-    <div className="w-full overflow-hidden select-none">
-      <div className="flex flex-row items-center gap-x-6 font-bold text-[27px] leading-[33px] w-max animate-marquee-x">
-        {track}
-      </div>
+    <div className="w-full flex flex-row items-center justify-between font-bold text-[11px] leading-[13px] select-none">
+      {HORIZONTAL_NUMBERS.map((n, i) => (
+        <NumberItem key={i} n={n} rotated />
+      ))}
     </div>
   );
 }

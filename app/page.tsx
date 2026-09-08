@@ -62,7 +62,7 @@ export default function HomePage() {
         <div className="border-t border-line" />
         <EventTickerBar />
 
-        <section id="whats-next" className="pt-6">
+        <section id="whats-next" className="pt-16">
           <div className="flex items-center justify-between mb-8">
             <h2 className="font-bold text-[30px] leading-[36px]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
@@ -97,9 +97,11 @@ export default function HomePage() {
           </p>
         </section>
 
-        <IndexRule />
+        <div className="pt-16">
+          <IndexRule noLine />
+        </div>
 
-        <section id="about" className="pt-10">
+        <section id="about" className="pt-16">
           <div className="flex items-center justify-between mb-10">
             <h2 className="font-bold text-[30px] leading-[36px]">ABOUT</h2>
             <BuyTicketsButton />
@@ -137,20 +139,23 @@ export default function HomePage() {
 
       {/* ============================= DESKTOP ============================= */}
       <div className="hidden md:block px-10 lg:px-16 pt-12 pb-16">
-        <div className="flex items-start justify-between mb-8">
+        <div className="flex items-start justify-between gap-8">
           <div>
             <h1 className="font-bold text-[44.8px] leading-[54px] mb-8">
               THE FUNKTION
             </h1>
             <NavLinks className="flex flex-col gap-3" />
           </div>
-          <NumberTicker orientation="vertical" />
+
+          <div className="-mt-6">
+            <NumberTicker orientation="vertical" />
+          </div>
         </div>
 
         <div className="border-t border-line mt-16" />
         <EventTickerBar />
 
-        <section id="whats-next" className="pt-10">
+        <section id="whats-next" className="pt-24">
           <div className="flex items-center justify-between mb-14">
             <h2 className="font-bold text-[44.8px] leading-[54px] tracking-[0.04em]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
@@ -180,11 +185,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="mt-16">
-          <IndexRule />
+        <div className="mt-24">
+          <IndexRule noLine />
         </div>
 
-        <section id="about" className="pt-16">
+        <section id="about" className="pt-24">
           <div className="flex items-center justify-between mb-14">
             <h2 className="font-bold text-[44.8px] leading-[54px] tracking-[0.04em]">ABOUT US</h2>
             <BuyTicketsButton />

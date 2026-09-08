@@ -89,7 +89,7 @@ export default function HomePage() {
             <NumberTicker orientation="horizontal" />
           </div>
 
-          <div className="flex justify-end mt-6 mb-24">
+          <div className="flex justify-end mt-16 mb-32">
             <BuyTicketsButton />
           </div>
         </section>

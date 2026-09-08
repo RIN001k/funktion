@@ -6,8 +6,8 @@ const VERTICAL_NUMBERS = [
   "01", "26", "27",
 ];
 
-// Horizontal ticker (About section): simple ascending sequence, as
-// shown in that section's own mockup.
+// Horizontal ticker (mobile, About section): simple ascending sequence,
+// with each number rotated sideways, as shown in that section's mockup.
 const HORIZONTAL_NUMBERS = [
   "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13",
   "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
@@ -15,14 +15,17 @@ const HORIZONTAL_NUMBERS = [
 
 const CIRCLED = new Set(["21", "04"]);
 
-function NumberItem({ n }: { n: string }) {
+function NumberItem({ n, rotated }: { n: string; rotated?: boolean }) {
+  const circled = CIRCLED.has(n);
   return (
     <span
-      className={
-        CIRCLED.has(n)
-          ? "inline-flex items-center justify-center w-14 h-9 rounded-full border-[1.5px] border-[#0D0D0D] shrink-0"
-          : "shrink-0"
-      }
+      className={`inline-flex items-center justify-center shrink-0 ${
+        rotated ? "rotate-90" : ""
+      } ${
+        circled
+          ? "w-14 h-9 rounded-full border-[1.5px] border-[#0D0D0D]"
+          : ""
+      }`}
     >
       {n}
     </span>
@@ -43,10 +46,10 @@ export default function NumberTicker({
   const track = (
     <>
       {numbers.map((n, i) => (
-        <NumberItem key={`a-${i}`} n={n} />
+        <NumberItem key={`a-${i}`} n={n} rotated={!isVertical} />
       ))}
       {numbers.map((n, i) => (
-        <NumberItem key={`b-${i}`} n={n} />
+        <NumberItem key={`b-${i}`} n={n} rotated={!isVertical} />
       ))}
     </>
   );
@@ -63,7 +66,7 @@ export default function NumberTicker({
 
   return (
     <div className="w-full overflow-hidden select-none">
-      <div className="flex flex-row gap-x-4 font-bold text-[27px] leading-[33px] w-max animate-marquee-x">
+      <div className="flex flex-row items-center gap-x-6 font-bold text-[27px] leading-[33px] w-max animate-marquee-x">
         {track}
       </div>
     </div>

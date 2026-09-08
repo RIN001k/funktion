@@ -192,10 +192,6 @@ export default function HomePage() {
 
           <AboutTextCollage />
 
-          <div className="max-w-2xl mx-auto mt-16">
-            <NumberTicker orientation="horizontal" />
-          </div>
-
           <p className="text-center text-[12px] leading-[15px] mt-16">
             SCROLL TO EXPLORE
             <br />

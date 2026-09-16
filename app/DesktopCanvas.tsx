@@ -52,6 +52,7 @@ function T({
     letterSpacing: tracking,
     opacity,
     whiteSpace: "pre-line",
+    fontVariantNumeric: "tabular-nums",
   };
   if (href) {
     return (

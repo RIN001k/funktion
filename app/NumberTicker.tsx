@@ -15,16 +15,37 @@ const HORIZONTAL_NUMBERS = [
 
 const CIRCLED = new Set(["21", "04"]);
 
-function NumberItem({ n, rotated }: { n: string; rotated?: boolean }) {
+function NumberItem({
+  n,
+  variant = "vertical",
+}: {
+  n: string;
+  variant?: "vertical" | "horizontal";
+}) {
   const circled = CIRCLED.has(n);
-  const badgeSize = rotated
-    ? "w-5 h-3 rounded-full border border-[#0D0D0D]"
-    : "w-10 h-6 rounded-full border-[1.5px] border-[#0D0D0D]";
+
+  if (variant === "horizontal") {
+    // Each item gets an equal-width slot (flex-1) so the row stays
+    // perfectly even regardless of the rotated glyph's own box size.
+    return (
+      <span className="flex-1 flex items-center justify-center">
+        <span
+          className={`inline-flex items-center justify-center rotate-90 ${
+            circled ? "w-5 h-3 rounded-full border border-[#0D0D0D]" : ""
+          }`}
+        >
+          {n}
+        </span>
+      </span>
+    );
+  }
+
+  const badgeSize = "w-10 h-6 rounded-full border-[1.5px] border-[#0D0D0D]";
   return (
     <span
       className={`inline-flex items-center justify-center shrink-0 ${
-        rotated ? "rotate-90" : ""
-      } ${circled ? badgeSize : ""}`}
+        circled ? badgeSize : ""
+      }`}
     >
       {n}
     </span>
@@ -51,9 +72,9 @@ export default function NumberTicker({
   // Horizontal (mobile): a small, static single row — every number
   // fits on screen at once, no scrolling or animation.
   return (
-    <div className="w-full flex flex-row items-center justify-between font-bold text-[9px] leading-[11px] select-none">
+    <div className="w-full flex flex-row items-center font-bold text-[9px] leading-[11px] select-none">
       {HORIZONTAL_NUMBERS.map((n, i) => (
-        <NumberItem key={i} n={n} rotated />
+        <NumberItem key={i} n={n} variant="horizontal" />
       ))}
     </div>
   );

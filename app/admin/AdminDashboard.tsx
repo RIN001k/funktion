@@ -91,11 +91,13 @@ export default function AdminDashboard({ groups }: { groups: EventGroup[] }) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-line rounded-sm p-5 bg-ink/5">
-      <p className="text-xs uppercase tracking-wide text-ink/50 mb-1 leading-tight min-h-[2em]">
+    <div className="border border-line rounded-sm p-3 sm:p-5 bg-ink/5 overflow-hidden">
+      <p className="text-[10px] sm:text-xs uppercase tracking-wide text-ink/50 mb-1 leading-tight min-h-[2em]">
         {label}
       </p>
-      <p className="font-display text-2xl text-ink">{value}</p>
+      <p className="font-display text-lg sm:text-2xl text-ink whitespace-nowrap overflow-hidden text-ellipsis">
+        {value}
+      </p>
     </div>
   );
 }

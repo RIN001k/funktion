@@ -10,6 +10,6 @@ export async function generateQrPng(token: string): Promise<Buffer> {
   return QRCode.toBuffer(token, {
     width: 600,
     margin: 2,
-    color: { dark: "#141312", light: "#F6F3EC" },
+    color: { dark: "#0A0A0A", light: "#FFFFFF" },
   });
 }

@@ -22,7 +22,7 @@ export default function HomePage() {
           <BuyTicketsButton />
         </div>
 
-        <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mb-[280px]">
+        <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mt-6 mb-[280px]">
           <a href="#top">HOME ★</a>
           <a href="#whats-next">WHAT&apos;S NEXT</a>
           <a href="#about">ABOUT</a>
@@ -40,7 +40,7 @@ export default function HomePage() {
 
         <section id="whats-next" className="pt-16">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="font-bold text-[16px] leading-[20px]">
+            <h2 className="font-bold text-[16px] leading-[20px] relative top-[2px]">
               WHAT&apos;S NEXT <span aria-hidden>↘</span>
             </h2>
             <BuyTicketsButton />
@@ -79,7 +79,9 @@ export default function HomePage() {
 
         <section id="about" className="pt-16">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="font-bold text-[16px] leading-[20px]">ABOUT</h2>
+            <h2 className="font-bold text-[16px] leading-[20px] relative top-[2px]">
+              ABOUT
+            </h2>
             <BuyTicketsButton />
           </div>
 
@@ -89,7 +91,7 @@ export default function HomePage() {
             <NumberTicker orientation="horizontal" />
           </div>
 
-          <div className="flex justify-end mt-16 mb-32">
+          <div className="flex justify-end mt-24 mb-32">
             <BuyTicketsButton />
           </div>
         </section>

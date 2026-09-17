@@ -3,6 +3,7 @@ import Stripe from "stripe";
 import { stripe, EVENT_NAME, EVENT_DATE } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabase";
 import { generateQrPng, generateQrToken } from "@/lib/qr";
+import { generateTicketPdf } from "@/lib/pdf";
 import { sendTicketEmail } from "@/lib/email";
 
 // Stripe needs the raw request body to verify the webhook signature.
@@ -80,5 +81,12 @@ async function handleCompletedCheckout(session: Stripe.Checkout.Session) {
   if (insertError) throw insertError;
 
   const qrPng = await generateQrPng(qrToken);
-  await sendTicketEmail({ to: email, name, qrPng });
+  const pdfBuffer = await generateTicketPdf({
+    qrPng,
+    name,
+    eventName: EVENT_NAME,
+    eventDate: EVENT_DATE,
+    qrToken,
+  });
+  await sendTicketEmail({ to: email, name, pdfBuffer });
 }

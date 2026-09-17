@@ -6,9 +6,9 @@ const resend = new Resend(process.env.RESEND_API_KEY!);
 export async function sendTicketEmail(params: {
   to: string;
   name: string;
-  qrPng: Buffer;
+  pdfBuffer: Buffer;
 }) {
-  const { to, qrPng } = params;
+  const { to, pdfBuffer } = params;
 
   await resend.emails.send({
     from: process.env.EMAIL_FROM || "tickets@example.com",
@@ -27,8 +27,8 @@ export async function sendTicketEmail(params: {
     `,
     attachments: [
       {
-        filename: "ticket-qr.png",
-        content: qrPng.toString("base64"),
+        filename: "funktion-ticket.pdf",
+        content: pdfBuffer.toString("base64"),
       },
     ],
   });

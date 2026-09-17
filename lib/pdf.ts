@@ -1,4 +1,20 @@
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, rgb } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
+import fs from "fs";
+import path from "path";
+
+// pdf-lib's built-in StandardFonts (Helvetica etc.) only support the
+// WinAnsi charset — they throw on Cyrillic, and on quite a few accented
+// Latin letters too. DejaVu Sans has broad Unicode coverage (Cyrillic,
+// Greek, most of Latin Extended), so ticket holder names in any of those
+// scripts render instead of crashing the whole checkout webhook.
+const FONT_REGULAR_PATH = path.join(process.cwd(), "lib", "fonts", "DejaVuSans.ttf");
+const FONT_BOLD_PATH = path.join(
+  process.cwd(),
+  "lib",
+  "fonts",
+  "DejaVuSans-Bold.ttf"
+);
 
 // THE FUNKTION brand colors (kept in sync with tailwind.config.js).
 const INK = rgb(10 / 255, 10 / 255, 10 / 255); // #0A0A0A
@@ -19,12 +35,17 @@ export async function generateTicketPdf(params: {
   const { qrPng, name, eventName, eventDate, qrToken } = params;
 
   const doc = await PDFDocument.create();
+  doc.registerFontkit(fontkit);
   const width = 400;
   const height = 700;
   const page = doc.addPage([width, height]);
 
-  const helvetica = await doc.embedFont(StandardFonts.Helvetica);
-  const helveticaBold = await doc.embedFont(StandardFonts.HelveticaBold);
+  const helvetica = await doc.embedFont(fs.readFileSync(FONT_REGULAR_PATH), {
+    subset: true,
+  });
+  const helveticaBold = await doc.embedFont(fs.readFileSync(FONT_BOLD_PATH), {
+    subset: true,
+  });
 
   const centerText = (
     text: string,

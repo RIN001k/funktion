@@ -35,7 +35,7 @@ export default function Charts({
                 color: "#0A0A0A",
               }}
             />
-            <Bar dataKey="count" fill="#FE0187" />
+            <Bar dataKey="count" fill="#FF0099" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -54,7 +54,7 @@ export default function Charts({
                 color: "#0A0A0A",
               }}
             />
-            <Line type="monotone" dataKey="count" stroke="#FE0187" strokeWidth={2} />
+            <Line type="monotone" dataKey="count" stroke="#FF0099" strokeWidth={2} />
           </LineChart>
         </ResponsiveContainer>
       </div>

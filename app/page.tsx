@@ -22,7 +22,7 @@ export default function HomePage() {
           <BuyTicketsButton />
         </div>
 
-        <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mt-6 mb-[280px]">
+        <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mt-12 mb-[280px]">
           <a href="#top">HOME ★</a>
           <a href="#whats-next">WHAT&apos;S NEXT</a>
           <a href="#about">ABOUT</a>
@@ -91,7 +91,7 @@ export default function HomePage() {
             <NumberTicker orientation="horizontal" />
           </div>
 
-          <div className="flex justify-end mt-24 mb-32">
+          <div className="flex justify-end mt-32 mb-32">
             <BuyTicketsButton />
           </div>
         </section>

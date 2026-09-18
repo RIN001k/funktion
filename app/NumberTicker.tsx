@@ -25,10 +25,8 @@ function NumberItem({
   const circled = CIRCLED.has(n);
 
   if (variant === "horizontal") {
-    // Each item gets an equal-width slot (flex-1) so the row stays
-    // perfectly even regardless of the rotated glyph's own box size.
     return (
-      <span className="flex-1 flex items-center justify-center">
+      <span className="flex items-center justify-center px-0.5">
         <span
           className={`inline-flex items-center justify-center rotate-90 ${
             circled ? "w-5 h-3 rounded-full border border-[#0D0D0D]" : ""
@@ -69,10 +67,11 @@ export default function NumberTicker({
     );
   }
 
-  // Horizontal (mobile): a small, static single row — every number
+  // Horizontal (mobile): a small, static single row, centered as a
+  // compact block rather than stretched edge to edge — every number
   // fits on screen at once, no scrolling or animation.
   return (
-    <div className="w-full flex flex-row items-center font-bold text-[9px] leading-[11px] select-none">
+    <div className="flex flex-row items-center justify-center flex-nowrap font-bold text-[9px] leading-[11px] select-none">
       {HORIZONTAL_NUMBERS.map((n, i) => (
         <NumberItem key={i} n={n} variant="horizontal" />
       ))}

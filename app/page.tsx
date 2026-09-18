@@ -87,11 +87,11 @@ export default function HomePage() {
 
           <AboutTextCollage />
 
-          <div className="mt-16 mb-8">
+          <div className="mt-20 mb-6">
             <NumberTicker orientation="horizontal" />
           </div>
 
-          <div className="flex justify-end mt-32 mb-32">
+          <div className="flex justify-end mt-24 mb-32">
             <BuyTicketsButton />
           </div>
         </section>

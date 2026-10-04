@@ -132,8 +132,7 @@ export default function TicketChooser() {
           {option("presale", "Presale ticket", options.prices.presale)}
         </div>
         <p className="text-[10px] leading-[13px] text-ink/60 mt-4">
-          Limited presale — only the first {options.presaleLimit} tickets,
-          same price for everyone.
+          Limited presale — same price for everyone.
         </p>
       </>
     );

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { stripe, EVENT_NAME, EVENT_DATE } from "@/lib/stripe";
+import { stripe, EVENT_NAME, EVENT_DATE, isTicketType } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabase";
 import { generateQrPng, generateQrToken } from "@/lib/qr";
 import { generateTicketPdf } from "@/lib/pdf";
@@ -64,9 +64,13 @@ async function handleCompletedCheckout(session: Stripe.Checkout.Session) {
     ? parseInt(ageField.numeric.value, 10)
     : null;
 
+  const ticketType = isTicketType(session.metadata?.ticket_type)
+    ? session.metadata!.ticket_type
+    : "regular";
+
   const qrToken = generateQrToken();
 
-  const { error: insertError } = await supabaseAdmin.from("tickets").insert({
+  const row = {
     email,
     name,
     age,
@@ -76,7 +80,20 @@ async function handleCompletedCheckout(session: Stripe.Checkout.Session) {
     price_paid: session.amount_total || 0,
     event_name: EVENT_NAME,
     event_date: EVENT_DATE,
-  });
+    ticket_type: ticketType,
+  };
+
+  let { error: insertError } = await supabaseAdmin.from("tickets").insert(row);
+
+  // Safety net: if the ticket_type column hasn't been added in Supabase
+  // yet, still issue the ticket instead of failing the whole purchase.
+  if (insertError && /ticket_type/.test(insertError.message || "")) {
+    console.error("tickets.ticket_type column missing — run the migration", insertError);
+    const { ticket_type: _omit, ...rowWithoutType } = row;
+    ({ error: insertError } = await supabaseAdmin
+      .from("tickets")
+      .insert(rowWithoutType));
+  }
 
   if (insertError) throw insertError;
 
@@ -87,6 +104,7 @@ async function handleCompletedCheckout(session: Stripe.Checkout.Session) {
     eventName: EVENT_NAME,
     eventDate: EVENT_DATE,
     qrToken,
+    ticketType,
   });
   await sendTicketEmail({ to: email, name, pdfBuffer });
 }

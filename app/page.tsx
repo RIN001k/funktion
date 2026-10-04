@@ -4,6 +4,7 @@ import EventTickerBar from "./EventTickerBar";
 import AboutTextCollage from "./AboutTextCollage";
 import IndexRule from "./IndexRule";
 import DesktopCanvas from "./DesktopCanvas";
+import TicketChooser from "./TicketChooser";
 
 const INTRO_PARAGRAPH =
   "the funktion takes over a new spot with a new format. expect iconic pop, disco classics and all the songs you know and love from the 70s to the 90s. red lights, good drinks, familiar music and a dance floor you won’t want to leave.";
@@ -121,6 +122,8 @@ export default function HomePage() {
       <div className="hidden md:block">
         <DesktopCanvas />
       </div>
+
+      <TicketChooser />
     </main>
   );
 }

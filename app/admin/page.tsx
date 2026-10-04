@@ -52,6 +52,12 @@ function groupByEvent(list: Ticket[]): EventGroup[] {
   const groups = Array.from(map.entries()).map(([key, g]) => {
     const totalSold = g.tickets.length;
     const checkedIn = g.tickets.filter((t) => t.status === "used").length;
+    const presaleSold = g.tickets.filter(
+      (t) => t.ticket_type === "presale"
+    ).length;
+    const studentSold = g.tickets.filter(
+      (t) => t.ticket_type === "student"
+    ).length;
     const revenue =
       g.tickets.reduce((sum, t) => sum + (t.price_paid || 0), 0) / 100;
     const latestPurchase = g.tickets.reduce(
@@ -65,6 +71,9 @@ function groupByEvent(list: Ticket[]): EventGroup[] {
       eventDate: g.eventDate,
       tickets: g.tickets,
       totalSold,
+      presaleSold,
+      studentSold,
+      regularSold: totalSold - presaleSold - studentSold,
       checkedIn,
       revenue,
       ageBuckets: bucketAges(g.tickets),

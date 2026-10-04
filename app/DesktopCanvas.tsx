@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import ScaledCanvas from "./ScaledCanvas";
+import { openTicketChooser } from "./TicketChooser";
 
 const DESIGN_WIDTH = 1440;
 const DESIGN_HEIGHT = 3629;
@@ -65,25 +65,9 @@ function T({
 }
 
 function TicketButton({ left, top }: { left: number; top: number }) {
-  const [loading, setLoading] = useState(false);
-
-  async function handleClick() {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/checkout", { method: "POST" });
-      const data = await res.json();
-      if (!res.ok || !data.url) throw new Error(data.error || "Failed");
-      window.location.href = data.url;
-    } catch {
-      setLoading(false);
-      alert("Could not start checkout. Please try again.");
-    }
-  }
-
   return (
     <button
-      onClick={handleClick}
-      disabled={loading}
+      onClick={openTicketChooser}
       style={{
         position: "absolute",
         left,
@@ -101,7 +85,7 @@ function TicketButton({ left, top }: { left: number; top: number }) {
         cursor: "pointer",
       }}
     >
-      {loading ? "One sec…" : "BUY TICKETS ↗"}
+      BUY TICKETS ↗
     </button>
   );
 }
@@ -173,7 +157,7 @@ export default function DesktopCanvas() {
           NEXT EVENT:{"\n"}TALK.SIP.ENJOY{"\n"}23.10.2026{"\n"}MOLLY MALONE BAR
         </T>
         <T left={470} top={930} width={220} weight={600} size={11} lh={13}>
-          PRESALE AVAILABLE{"\n"}STUDENTS 5€{"\n"}NON-STUDENTS 10€
+          TICKETS AVAILABLE NOW{"\n"}LIMITED CAPACITY{"\n"}GET YOURS EARLY
         </T>
 
         {/* WHAT'S NEXT */}

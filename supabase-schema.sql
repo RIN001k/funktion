@@ -13,6 +13,7 @@ create table if not exists tickets (
   price_paid int not null default 0,
   event_name text,
   event_date text,
+  ticket_type text not null default 'regular' check (ticket_type in ('presale', 'student', 'regular')),
   created_at timestamptz not null default now()
 );
 

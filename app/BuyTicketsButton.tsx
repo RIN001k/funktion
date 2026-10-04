@@ -1,35 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { openTicketChooser } from "./TicketChooser";
 
 export default function BuyTicketsButton({
   className = "",
 }: {
   className?: string;
 }) {
-  const [loading, setLoading] = useState(false);
-
-  async function handleClick() {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/checkout", { method: "POST" });
-      const data = await res.json();
-      if (!res.ok || !data.url) throw new Error(data.error || "Failed");
-      window.location.href = data.url;
-    } catch {
-      setLoading(false);
-      alert("Could not start checkout. Please try again.");
-    }
-  }
-
   return (
     <button
-      onClick={handleClick}
-      disabled={loading}
-      className={`inline-flex items-center justify-center gap-1 bg-[#FF0099] text-black font-bold uppercase text-[9px] leading-[11px] px-3 py-1.5 border border-[#141414] hover:bg-black hover:text-white transition-colors disabled:opacity-60 whitespace-nowrap ${className}`}
+      onClick={openTicketChooser}
+      className={`inline-flex items-center justify-center gap-1 bg-[#FF0099] text-black font-bold uppercase text-[9px] leading-[11px] px-3 py-1.5 border border-[#141414] hover:bg-black hover:text-white transition-colors whitespace-nowrap ${className}`}
     >
-      {loading ? "One sec…" : "Buy Tickets"}
-      {!loading && <span aria-hidden>↗</span>}
+      Buy Tickets
+      <span aria-hidden>↗</span>
     </button>
   );
 }

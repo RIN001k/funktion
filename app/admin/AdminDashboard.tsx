@@ -10,6 +10,9 @@ export type EventGroup = {
   eventDate: string;
   tickets: Ticket[];
   totalSold: number;
+  presaleSold: number;
+  studentSold: number;
+  regularSold: number;
   checkedIn: number;
   revenue: number;
   ageBuckets: { label: string; count: number }[];
@@ -54,6 +57,12 @@ export default function AdminDashboard({ groups }: { groups: EventGroup[] }) {
         <Stat label="Revenue" value={`€${g.revenue.toFixed(2)}`} />
       </div>
 
+      <div className="grid grid-cols-3 gap-4 -mt-6 mb-10">
+        <Stat label="Presale" value={g.presaleSold.toString()} />
+        <Stat label="Student" value={g.studentSold.toString()} />
+        <Stat label="Non-student" value={g.regularSold.toString()} />
+      </div>
+
       <Charts ageBuckets={g.ageBuckets} salesByDay={g.salesByDay} />
 
       <h2 className="font-display text-xl mt-10 mb-4">All tickets</h2>
@@ -64,6 +73,7 @@ export default function AdminDashboard({ groups }: { groups: EventGroup[] }) {
               <th className="px-4 py-2">Name</th>
               <th className="px-4 py-2">Email</th>
               <th className="px-4 py-2">Age</th>
+              <th className="px-4 py-2">Type</th>
               <th className="px-4 py-2">Purchased</th>
               <th className="px-4 py-2">Status</th>
             </tr>
@@ -74,6 +84,13 @@ export default function AdminDashboard({ groups }: { groups: EventGroup[] }) {
                 <td className="px-4 py-2">{t.name}</td>
                 <td className="px-4 py-2">{t.email}</td>
                 <td className="px-4 py-2">{t.age ?? "—"}</td>
+                <td className="px-4 py-2">
+                  {t.ticket_type === "presale"
+                    ? "Presale"
+                    : t.ticket_type === "student"
+                    ? "Student"
+                    : "Non-student"}
+                </td>
                 <td className="px-4 py-2">
                   {new Date(t.created_at).toLocaleString("en-GB")}
                 </td>

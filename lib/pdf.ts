@@ -31,8 +31,10 @@ export async function generateTicketPdf(params: {
   eventName: string;
   eventDate: string;
   qrToken: string;
+  ticketType?: "presale" | "student" | "regular";
 }): Promise<Buffer> {
   const { qrPng, name, eventName, eventDate, qrToken } = params;
+  const isStudent = params.ticketType === "student";
 
   const doc = await PDFDocument.create();
   doc.registerFontkit(fontkit);
@@ -82,6 +84,29 @@ export async function generateTicketPdf(params: {
   centerText("TICKET HOLDER", height - 168, 9, helveticaBold, PINK);
   centerText(name, height - 188, 14, helvetica, PAPER);
 
+  // Ticket type badge — STUDENT gets a pink pill so door staff spot it
+  // immediately and know to ask for a student ID.
+  const typeText = isStudent
+    ? "STUDENT TICKET"
+    : params.ticketType === "presale"
+    ? "PRESALE TICKET"
+    : "STANDARD TICKET";
+  const typeSize = 10;
+  const typeWidth = helveticaBold.widthOfTextAtSize(typeText, typeSize);
+  const badgeY = height - 228;
+  if (isStudent) {
+    page.drawRectangle({
+      x: (width - typeWidth) / 2 - 10,
+      y: badgeY - 6,
+      width: typeWidth + 20,
+      height: 22,
+      color: PINK,
+    });
+    centerText(typeText, badgeY, typeSize, helveticaBold, INK);
+  } else {
+    centerText(typeText, badgeY, typeSize, helveticaBold, GREY);
+  }
+
   // QR card
   const qrImage = await doc.embedPng(qrPng);
   const qrSize = 240;
@@ -103,19 +128,28 @@ export async function generateTicketPdf(params: {
 
   // Footer
   page.drawLine({
-    start: { x: 32, y: 76 },
-    end: { x: width - 32, y: 76 },
+    start: { x: 32, y: 86 },
+    end: { x: width - 32, y: 86 },
     thickness: 0.5,
     color: rgb(0.25, 0.25, 0.25),
   });
   centerText(
     "Present this QR code at the entrance.",
-    54,
+    isStudent ? 66 : 60,
     9,
     helvetica,
     GREY
   );
-  centerText("thefunktion.at", 34, 10, helveticaBold, PINK);
+  if (isStudent) {
+    centerText(
+      "Valid student ID required at the entrance.",
+      52,
+      9,
+      helveticaBold,
+      PAPER
+    );
+  }
+  centerText("thefunktion.at", 30, 10, helveticaBold, PINK);
 
   const bytes = await doc.save();
   return Buffer.from(bytes);

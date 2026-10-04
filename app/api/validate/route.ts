@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
       checked_in_at: ticket.checked_in_at,
       name: ticket.name,
       age: ticket.age,
+      ticketType: ticket.ticket_type || "regular",
       previousEvents,
     });
   }
@@ -47,6 +48,7 @@ export async function POST(req: NextRequest) {
     valid: true,
     name: ticket.name,
     age: ticket.age,
+    ticketType: ticket.ticket_type || "regular",
     previousEvents,
   });
 }

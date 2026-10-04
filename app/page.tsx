@@ -6,7 +6,7 @@ import IndexRule from "./IndexRule";
 import DesktopCanvas from "./DesktopCanvas";
 
 const INTRO_PARAGRAPH =
-  "the funktion is an independent event collective based in Klagenfurt, Austria. We create events people actually want to go to.";
+  "the funktion takes over a new spot with a new format. expect iconic pop, disco classics and all the songs you know and love from the 70s to the 90s. red lights, good drinks, familiar music and a dance floor you won’t want to leave.";
 
 export default function HomePage() {
   return (

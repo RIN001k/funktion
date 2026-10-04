@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const SITE_URL = process.env.SITE_URL || "https://thefunktion.at";
-const TITLE = "THE FUNKTION — Klagenfurt Event Collective";
+const TITLE = "THE FUNKTION — Events in Klagenfurt";
 const DESCRIPTION =
-  "THE FUNKTION is an independent event collective based in Klagenfurt, Austria. We create events people actually want to go to. Get tickets for the next night.";
+  "THE FUNKTION is a student-led event collective in Klagenfurt, creating parties, open airs, workshops and new event formats across the city.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -170,10 +170,10 @@ export default function DesktopCanvas() {
         <div style={{ position: "absolute", left: 0, top: 910, width: 1440, height: 1, background: "#1F1F1F" }} />
         <div style={{ position: "absolute", left: 40, top: 934, width: 72, height: 60, background: "#262626" }} />
         <T left={130} top={930} width={260} weight={600} size={11} lh={13}>
-          NEXT EVENT{"\n"}OPEN AIR + WORKSHOP{"\n"}03.07.2026{"\n"}KLAGENFURT
+          NEXT EVENT:{"\n"}TALK.SIP.ENJOY{"\n"}23.10.2026{"\n"}MOLLY MALONE BAR
         </T>
         <T left={470} top={930} width={220} weight={600} size={11} lh={13}>
-          SOLD OUT{"\n"}PIZZA WORKSHOP{"\n"}EARLY BIRD TICKETS
+          PRESALE AVAILABLE{"\n"}STUDENTS 5€{"\n"}NON-STUDENTS 10€
         </T>
 
         {/* WHAT'S NEXT */}
@@ -192,8 +192,10 @@ export default function DesktopCanvas() {
           align="center"
           transform="lowercase"
         >
-          the funktion is an independent event collective based in klagenfurt,
-          austria. we create events people actually want to go to.
+          the funktion takes over a new spot with a new format. expect iconic
+          pop, disco classics and all the songs you know and love from the 70s
+          to the 90s. red lights, good drinks, familiar music and a dance floor
+          you won&apos;t want to leave.
         </T>
         <T left={702} top={1337} weight={400} size={18} lh={22} color="#0A0A0A">
           —
@@ -243,29 +245,32 @@ export default function DesktopCanvas() {
           EVENT INDEX — NIGHTS WE REMEMBER
         </T>
 
-        {/* ABOUT US */}
+        {/* ABOUT */}
         <T left={50} top={2061} width={400} weight={700} size={44.8} lh={54} tracking="0.04em">
-          ABOUT US
+          ABOUT
         </T>
         <TicketButton left={1198} top={2051} />
 
+        {/* About — top left */}
         <T
-          left={1440 / 2 - 107 / 2 - 75.5}
+          left={540}
           top={2198}
-          width={107}
+          width={190}
           font="Helvetica Neue, Helvetica, Arial, sans-serif"
           weight={300}
           size={14}
           lh={17}
           transform="lowercase"
         >
-          the funktion is an independent event collective based in klagenfurt,
-          austria. we create events people actually want to go to.
+          the funktion is led by two students from the university of klagenfurt
+          with one simple idea — to make klagenfurt a little more alive and
+          create events people actually want to go to.
         </T>
+        {/* About — top right */}
         <T
-          left={1440 / 2 - 90 / 2 + 67}
-          top={2229}
-          width={90}
+          left={760}
+          top={2230}
+          width={190}
           font="Helvetica Neue, Helvetica, Arial, sans-serif"
           weight={300}
           size={14}
@@ -273,26 +278,31 @@ export default function DesktopCanvas() {
           align="right"
           transform="lowercase"
         >
-          the funktion is an independent event collective based in klagenfurt,
-          austria. we create events people actually want to go to.
+          this semester, we&apos;re mixing things up — new places, different
+          music and all kinds of event formats. from open airs and workshops
+          to bar and club nights, we want every funktion to feel a little
+          different.
         </T>
+        {/* About — bottom left */}
         <T
-          left={1440 / 2 - 100 / 2 - 77}
-          top={2387}
-          width={100}
+          left={540}
+          top={2410}
+          width={190}
           font="Helvetica Neue, Helvetica, Arial, sans-serif"
           weight={300}
           size={14}
           lh={17}
           transform="lowercase"
         >
-          the funktion is an independent event collective based in klagenfurt,
-          austria. we create events people actually want to go to.
+          we don&apos;t really have a formula. some ideas work, some are a
+          little crazy, but we&apos;re always ready to try something new and
+          see where it takes us.
         </T>
+        {/* About — bottom right */}
         <T
-          left={1440 / 2 - 90 / 2 + 67}
-          top={2450}
-          width={90}
+          left={760}
+          top={2440}
+          width={190}
           font="Helvetica Neue, Helvetica, Arial, sans-serif"
           weight={300}
           size={14}
@@ -300,8 +310,9 @@ export default function DesktopCanvas() {
           align="right"
           transform="lowercase"
         >
-          the funktion is an independent event collective based in klagenfurt,
-          austria. we create events people actually want to go to.
+          everything we do is made possible by our student community. every
+          ticket, every person who shows up and every friend you bring helps us
+          keep creating new events in lovely klagefornia.
         </T>
 
         <T left={630} top={2733} width={180} align="center" font="Helvetica Neue, Helvetica, Arial, sans-serif" weight={300} size={12} lh={15}>

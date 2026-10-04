@@ -152,7 +152,19 @@ export default function DesktopCanvas() {
 
         {/* Divider + ticker bar — the one and only line */}
         <div style={{ position: "absolute", left: 0, top: 910, width: 1440, height: 1, background: "#1F1F1F" }} />
-        <div style={{ position: "absolute", left: 40, top: 934, width: 72, height: 60, background: "#262626" }} />
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            left: 40,
+            top: 934,
+            width: 72,
+            height: 60,
+            backgroundImage: "url(/gallery/v2/next-event-thumb.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
         <T left={130} top={930} width={260} weight={600} size={11} lh={13}>
           NEXT EVENT:{"\n"}TALK.SIP.ENJOY{"\n"}23.10.2026{"\n"}MOLLY MALONE BAR
         </T>

@@ -33,7 +33,7 @@ export default function AdminDashboard({ groups }: { groups: EventGroup[] }) {
 
   return (
     <div>
-      {groups.length > 1 && (
+      {groups.length > 0 && (
         <div className="flex gap-2 overflow-x-auto mb-8 pb-1 -mx-1 px-1">
           {groups.map((group, i) => (
             <button

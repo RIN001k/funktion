@@ -37,7 +37,10 @@ export default function TicketChooser() {
   const loadOptions = useCallback(async () => {
     setLoadError(false);
     try {
-      const res = await fetch("/api/ticket-options", { cache: "no-store" });
+      const res = await fetch("/api/ticket-options", {
+        method: "POST",
+        cache: "no-store",
+      });
       if (!res.ok) throw new Error();
       setOptions(await res.json());
     } catch {
@@ -47,6 +50,9 @@ export default function TicketChooser() {
 
   useEffect(() => {
     const onOpen = () => {
+      // Drop whatever was shown last time so an old "presale" view never
+      // flashes before the fresh answer arrives.
+      setOptions(null);
       setOpen(true);
       loadOptions();
     };

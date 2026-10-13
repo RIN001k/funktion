@@ -30,10 +30,18 @@ export async function POST(req: NextRequest) {
 
     try {
       await handleCompletedCheckout(session);
-    } catch (err) {
+    } catch (err: any) {
       console.error("Failed to process completed checkout", err);
-      // Return 500 so Stripe retries the webhook automatically.
-      return NextResponse.json({ error: "Processing failed" }, { status: 500 });
+      // Return 500 so Stripe retries the webhook automatically. The reason
+      // is included so it's visible in Stripe → Webhooks → Event deliveries.
+      return NextResponse.json(
+        {
+          error: "Processing failed",
+          detail: err?.message || err?.details || String(err),
+          code: err?.code,
+        },
+        { status: 500 }
+      );
     }
   }
 

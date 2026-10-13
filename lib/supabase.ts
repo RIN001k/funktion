@@ -3,10 +3,21 @@ import { createClient } from "@supabase/supabase-js";
 // This client uses the SERVICE ROLE key and must only ever be imported
 // from server-side code (API routes, server components). Never expose
 // this client or the service role key to the browser.
+//
+// IMPORTANT: Next.js caches fetch() responses on the server by default
+// (and on Vercel that cache survives between requests and deploys). The
+// ticket data must always be live — otherwise the admin dashboard and the
+// presale counter freeze on old numbers — so every Supabase request is
+// forced to bypass that cache.
 export const supabaseAdmin = createClient(
   process.env.SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  { auth: { persistSession: false } }
+  {
+    auth: { persistSession: false },
+    global: {
+      fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+    },
+  }
 );
 
 export type Ticket = {

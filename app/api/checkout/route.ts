@@ -28,7 +28,8 @@ export async function POST(req: NextRequest) {
     // student / non-student. The chooser re-fetches on a 409.
     const options = await getTicketOptions();
     const allowed =
-      ticketType === "presale" ? options.presaleOpen : !options.presaleOpen;
+      options.salesOpen &&
+      (ticketType === "presale" ? options.presaleOpen : !options.presaleOpen);
     if (!allowed) {
       return NextResponse.json(
         { error: "options_changed", options },

@@ -30,3 +30,9 @@ export const PRESALE_LIMIT = parseInt(process.env.PRESALE_LIMIT || "60", 10);
 export function isTicketType(value: unknown): value is TicketType {
   return value === "presale" || value === "student" || value === "regular";
 }
+
+// Master switch for online sales. While TICKET_SALES_OPEN isn't "true",
+// the Buy Tickets buttons only show a "sold out / available at the door"
+// message and the checkout API refuses every purchase. Set it to "true"
+// in Vercel (and Redeploy) to open sales again for the next event.
+export const SALES_OPEN = process.env.TICKET_SALES_OPEN === "true";

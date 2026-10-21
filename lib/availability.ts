@@ -1,6 +1,6 @@
 import { supabaseAdmin } from "./supabase";
 import { EVENT_NAME, EVENT_DATE } from "./stripe";
-import { PRESALE_LIMIT, TICKET_TYPES } from "./tickets";
+import { PRESALE_LIMIT, SALES_OPEN, TICKET_TYPES } from "./tickets";
 
 // Presale counts only tickets of the CURRENT event (EVENT_NAME +
 // EVENT_DATE), so switching those env vars for the next event starts a
@@ -18,10 +18,12 @@ export async function getPresaleSold(): Promise<number> {
 }
 
 export async function getTicketOptions() {
-  const sold = await getPresaleSold();
+  // Sales closed: no need to ask the database at all.
+  const sold = SALES_OPEN ? await getPresaleSold() : 0;
   const remaining = Math.max(0, PRESALE_LIMIT - sold);
   return {
-    presaleOpen: remaining > 0,
+    salesOpen: SALES_OPEN,
+    presaleOpen: SALES_OPEN && remaining > 0,
     presaleRemaining: remaining,
     presaleLimit: PRESALE_LIMIT,
     prices: {

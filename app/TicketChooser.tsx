@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 type TicketType = "presale" | "student" | "regular";
 
 type Options = {
+  salesOpen: boolean;
   presaleOpen: boolean;
   presaleRemaining: number;
   presaleLimit: number;
@@ -131,6 +132,12 @@ export default function TicketChooser() {
     );
   } else if (!options) {
     body = <p className="text-[12px] text-ink/60 py-6">Loading…</p>;
+  } else if (!options.salesOpen) {
+    body = (
+      <p className="text-[13px] leading-[18px]">
+        Tickets will still be available at the door.
+      </p>
+    );
   } else if (options.presaleOpen) {
     body = (
       <>
@@ -177,7 +184,13 @@ export default function TicketChooser() {
         </button>
 
         <p className="font-helvetica font-bold text-[16px] leading-[20px] mb-1">
-          {options?.presaleOpen ? "PRESALE" : "CHOOSE YOUR TICKET"}
+          {!options
+            ? "TICKETS"
+            : !options.salesOpen
+            ? "PRESALE SOLD OUT!"
+            : options.presaleOpen
+            ? "PRESALE"
+            : "CHOOSE YOUR TICKET"}
         </p>
         <div className="w-10 h-[3px] bg-[#FF0099] mb-6" />
 

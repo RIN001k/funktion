@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 type PreviousEvent = { event_name: string; event_date: string };
 
+type Stats = { checkedIn: number; total: number; eventName: string };
+
 type ScanResult = {
   valid: boolean;
   name?: string;
@@ -19,6 +21,27 @@ export default function ScanPage() {
   const scannerRef = useRef<any>(null);
   const busyRef = useRef(false);
   const [result, setResult] = useState<ScanResult | null>(null);
+  const [stats, setStats] = useState<Stats | null>(null);
+
+  // Live "checked in / sold" counter. Refreshed right after every scan and
+  // every 10 seconds, so several phones scanning at the door stay in sync.
+  async function loadStats() {
+    try {
+      const res = await fetch("/api/scan-stats", {
+        method: "POST",
+        cache: "no-store",
+      });
+      if (res.ok) setStats(await res.json());
+    } catch {
+      // keep showing the last known numbers
+    }
+  }
+
+  useEffect(() => {
+    loadStats();
+    const id = setInterval(loadStats, 10000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -59,6 +82,7 @@ export default function ScanPage() {
       });
       const data: ScanResult = await res.json();
       setResult(data);
+      loadStats();
     } catch {
       setResult({ valid: false, reason: "not_found" });
     }
@@ -73,7 +97,21 @@ export default function ScanPage() {
 
   return (
     <main className="min-h-screen bg-ink flex flex-col items-center justify-center px-4 py-10">
-      <h1 className="text-paper font-display text-2xl mb-6">Scan tickets</h1>
+      <div className="w-full max-w-sm mb-6 text-center">
+        <h1 className="text-paper font-display text-2xl mb-3">Scan tickets</h1>
+        <div className="border border-white/30 rounded-sm py-3 px-4 text-paper">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-1">
+            Checked in{stats?.eventName ? ` · ${stats.eventName}` : ""}
+          </p>
+          <p className="font-display text-4xl leading-none">
+            {stats ? stats.checkedIn : "—"}
+            <span className="text-white/50 text-2xl">
+              {" "}
+              / {stats ? stats.total : "—"}
+            </span>
+          </p>
+        </div>
+      </div>
 
       <div
         id="qr-reader"

@@ -26,7 +26,7 @@ export default function HomePage() {
         <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mt-[190px] mb-[190px]">
           {/* The star hangs outside the link box so the word HOME itself sits
               on the same centre line as the other menu items. */}
-          <a href="#top" className="relative">
+          <a href="#top" className="relative -left-[5px]">
             HOME
             <span aria-hidden className="absolute left-full top-0 ml-1">
               ★

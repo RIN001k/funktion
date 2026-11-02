@@ -10,7 +10,7 @@ type ScanResult = {
   valid: boolean;
   name?: string;
   age?: number | null;
-  ticketType?: "presale" | "student" | "regular";
+  ticketType?: "presale" | "student" | "regular" | "guest";
   reason?: "already_used" | "not_found";
   checked_in_at?: string;
   previousEvents?: PreviousEvent[];

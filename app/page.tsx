@@ -7,7 +7,7 @@ import DesktopCanvas from "./DesktopCanvas";
 import TicketChooser from "./TicketChooser";
 
 const INTRO_PARAGRAPH =
-  "the funktion takes over a new spot with a new format. expect iconic pop, disco classics and all the songs you know and love from the 70s to the 90s. red lights, good drinks, familiar music and a dance floor you won’t want to leave.";
+  "friday the 13th at fritz club! it’s our last club funktion of the year, with a night full of your favorite pop hits. dress up as whoever (or whatever) you want and get ready for good music, drinks and dancing all night.";
 
 export default function HomePage() {
   return (
@@ -24,7 +24,14 @@ export default function HomePage() {
         </div>
 
         <nav className="flex flex-col items-center gap-2 font-helvetica font-light text-[17px] leading-[20px] text-center mt-[190px] mb-[190px]">
-          <a href="#top">HOME ★</a>
+          {/* The star hangs outside the link box so the word HOME itself sits
+              on the same centre line as the other menu items. */}
+          <a href="#top" className="relative">
+            HOME
+            <span aria-hidden className="absolute left-full top-0 ml-1">
+              ★
+            </span>
+          </a>
           <a href="#whats-next">WHAT&apos;S NEXT</a>
           <a href="#about">ABOUT</a>
           <a href="#contact">CONTACT</a>
@@ -52,19 +59,16 @@ export default function HomePage() {
           </p>
           <p className="text-center mb-6">—</p>
 
-          <div className="space-y-3 mb-6 max-w-[220px] mx-auto">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/gallery/v2/mobile-1.jpg"
-              alt="THE FUNKTION — past night"
-              className="w-full aspect-[4/3] object-cover"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/gallery/v2/mobile-2.jpg"
-              alt="THE FUNKTION — past night"
-              className="w-full aspect-[4/3] object-cover"
-            />
+          <div className="grid grid-cols-3 gap-1 mb-6">
+            {["f13-1", "f13-2", "f13-3"].map((f) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={f}
+                src={`/gallery/v3/${f}.jpg`}
+                alt="THE FUNKTION — club night"
+                className="w-full aspect-[576/618] object-cover"
+              />
+            ))}
           </div>
 
           <p className="text-center text-[10px] leading-[13px] mb-10">

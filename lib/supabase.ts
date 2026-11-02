@@ -32,6 +32,6 @@ export type Ticket = {
   price_paid: number;
   event_name: string | null;
   event_date: string | null;
-  ticket_type?: "presale" | "student" | "regular" | null;
+  ticket_type?: "presale" | "student" | "regular" | "guest" | null;
   created_at: string;
 };

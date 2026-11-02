@@ -160,13 +160,13 @@ export default function DesktopCanvas() {
             top: 934,
             width: 72,
             height: 60,
-            backgroundImage: "url(/gallery/v2/next-event-thumb.jpg)",
+            backgroundImage: "url(/gallery/v3/f13-thumb.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
         <T left={130} top={930} width={260} weight={600} size={11} lh={13}>
-          NEXT EVENT:{"\n"}TALK.SIP.ENJOY{"\n"}23.10.2026{"\n"}MOLLY MALONE BAR
+          NEXT EVENT:{"\n"}FRIDAY 13TH PARTY{"\n"}13.11.2026{"\n"}FRITZ CLUB
         </T>
         <T left={470} top={930} width={220} weight={600} size={11} lh={13}>
           TICKETS AVAILABLE NOW{"\n"}LIMITED CAPACITY{"\n"}GET YOURS EARLY
@@ -188,37 +188,24 @@ export default function DesktopCanvas() {
           align="center"
           transform="lowercase"
         >
-          the funktion takes over a new spot with a new format. expect iconic
-          pop, disco classics and all the songs you know and love from the 70s
-          to the 90s. red lights, good drinks, familiar music and a dance floor
-          you won&apos;t want to leave.
+          friday the 13th at fritz club! it&apos;s our last club funktion of
+          the year, with a night full of your favorite pop hits. dress up as
+          whoever (or whatever) you want and get ready for good music, drinks
+          and dancing all night.
         </T>
         <T left={702} top={1337} weight={400} size={18} lh={22} color="#0A0A0A">
           —
         </T>
 
-        {/* Photos */}
+        {/* Photos — three equal frames side by side */}
         <div
           style={{
             position: "absolute",
-            left: 100,
+            left: 156,
             top: 1430,
-            width: 365,
-            height: 230,
-            backgroundImage: "url(/gallery/v2/desktop-1.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            transform: "scaleX(-1)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 551,
-            top: 1430,
-            width: 341,
-            height: 232,
-            backgroundImage: "url(/gallery/v2/desktop-2.jpg)",
+            width: 360,
+            height: 386,
+            backgroundImage: "url(/gallery/v3/f13-1.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -226,14 +213,25 @@ export default function DesktopCanvas() {
         <div
           style={{
             position: "absolute",
-            left: 978,
-            top: 1432,
-            width: 365,
-            height: 230,
-            backgroundImage: "url(/gallery/v2/desktop-1.jpg)",
+            left: 540,
+            top: 1430,
+            width: 360,
+            height: 386,
+            backgroundImage: "url(/gallery/v3/f13-2.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            transform: "scaleX(-1)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: 924,
+            top: 1430,
+            width: 360,
+            height: 386,
+            backgroundImage: "url(/gallery/v3/f13-3.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
 

@@ -11,7 +11,11 @@ export default async function AdminPage() {
     .select("*")
     .order("created_at", { ascending: true });
 
-  const list: Ticket[] = tickets || [];
+  // Guest passes (free, created by hand) are real tickets for the door
+  // scanner but not sales — keep them out of every sales number here.
+  const all: Ticket[] = tickets || [];
+  const guests = all.filter((t) => t.ticket_type === "guest");
+  const list = all.filter((t) => t.ticket_type !== "guest");
   const groups = groupByEvent(list);
 
   return (
@@ -27,6 +31,13 @@ export default async function AdminPage() {
       </div>
 
       <AdminDashboard groups={groups} />
+
+      {guests.length > 0 && (
+        <p className="text-xs text-ink/50 mt-8">
+          Guest passes (not counted as sales): {guests.length} · checked in:{" "}
+          {guests.filter((t) => t.status === "used").length}
+        </p>
+      )}
     </main>
   );
 }

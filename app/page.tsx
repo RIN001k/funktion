@@ -54,7 +54,7 @@ export default function HomePage() {
             <BuyTicketsButton />
           </div>
 
-          <p className="text-center text-[11px] leading-[14px] font-helvetica font-normal lowercase mb-2 max-w-[220px] mx-auto">
+          <p className="text-center text-[11px] leading-[14px] font-helvetica font-normal lowercase mb-2 max-w-[165px] mx-auto">
             {INTRO_PARAGRAPH}
           </p>
           <p className="text-center mb-6">—</p>

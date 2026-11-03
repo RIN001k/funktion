@@ -8,9 +8,9 @@ export default function EventTickerBar() {
         aria-hidden
         className="w-7 h-7 object-cover shrink-0"
       />
-      {/* Both text blocks start on the same line (items-start); the right
-          block sits on the right side, its text left-aligned like the left one. */}
-      <div className="flex-1 flex items-start justify-between gap-6 pr-6 text-[9px] font-semibold uppercase leading-[1.2]">
+      {/* Two equal-width columns: both blocks start on the same line and
+          take the same width, text left-aligned in each. */}
+      <div className="flex-1 grid grid-cols-2 gap-4 items-start text-[9px] font-semibold uppercase leading-[1.2]">
         <div>
           <p>Next Event:</p>
           <p>Friday 13th Party</p>

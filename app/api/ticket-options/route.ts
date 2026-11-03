@@ -15,7 +15,15 @@ async function handler() {
   } catch (err) {
     console.error("ticket-options error", err);
     return NextResponse.json(
-      { error: "Could not load tickets" },
+      {
+        error: "Could not load tickets",
+        // Short reason (no secrets) so the problem is visible straight
+        // from the browser, e.g. a paused Supabase project.
+        detail:
+          err instanceof Error
+            ? err.message
+            : (err as { message?: string })?.message || String(err),
+      },
       { status: 500 }
     );
   }

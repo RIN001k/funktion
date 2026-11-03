@@ -57,7 +57,7 @@ export default function HomePage() {
           <p className="text-center text-[11px] leading-[14px] font-helvetica font-normal lowercase mb-2 max-w-[165px] mx-auto">
             {INTRO_PARAGRAPH}
           </p>
-          <p className="text-center mb-6">—</p>
+          <p className="text-center mb-10">—</p>
 
           <div className="grid grid-cols-3 gap-1 mb-6">
             {["f13-1", "f13-2", "f13-3"].map((f) => (
@@ -78,11 +78,11 @@ export default function HomePage() {
           </p>
         </section>
 
-        <div className="pt-16">
+        <div className="pt-24">
           <IndexRule noLine />
         </div>
 
-        <section id="about" className="pt-16">
+        <section id="about" className="pt-8">
           <div className="flex items-center justify-between mb-12">
             <h2 className="font-bold text-[16px] leading-[20px] relative top-[2px]">
               ABOUT

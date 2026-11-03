@@ -23,6 +23,16 @@ async function handler() {
           err instanceof Error
             ? err.message
             : (err as { message?: string })?.message || String(err),
+        // Network-level cause (e.g. ENOTFOUND = wrong/deleted Supabase
+        // URL, timeout = paused project) and which Supabase host was used.
+        cause: (err as { details?: string })?.details || undefined,
+        host: (() => {
+          try {
+            return new URL(process.env.SUPABASE_URL || "").host;
+          } catch {
+            return `invalid SUPABASE_URL (${(process.env.SUPABASE_URL || "").length} chars)`;
+          }
+        })(),
       },
       { status: 500 }
     );

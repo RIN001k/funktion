@@ -55,6 +55,9 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
+      // Adds the "Add promotion code" field on Stripe's payment page.
+      // The codes themselves (and their 30-use limit) live in Stripe.
+      allow_promotion_codes: true,
       metadata: { ticket_type: ticketType },
       // Custom fields guarantee we get a name and age even though
       // Stripe collects the email automatically for payment mode.

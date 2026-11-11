@@ -195,6 +195,12 @@ export default function TicketChooser() {
         <div className="w-10 h-[3px] bg-[#FF0099] mb-6" />
 
         {body}
+
+        {options?.salesOpen && !loadError && (
+          <p className="text-[11px] leading-[14px] font-bold mt-4">
+            18+ event — ID may be checked at the entrance.
+          </p>
+        )}
       </div>
     </div>
   );

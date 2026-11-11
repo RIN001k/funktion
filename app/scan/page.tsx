@@ -10,7 +10,7 @@ type ScanResult = {
   valid: boolean;
   name?: string;
   age?: number | null;
-  ticketType?: "presale" | "student" | "regular" | "guest";
+  ticketType?: "presale" | "student" | "regular" | "guest" | "staff";
   reason?: "already_used" | "not_found";
   checked_in_at?: string;
   previousEvents?: PreviousEvent[];
@@ -135,6 +135,12 @@ export default function ScanPage() {
                 "Ticket not found"
               )}
             </p>
+
+            {result.ticketType === "staff" && (
+              <p className="my-2 inline-block bg-black text-white font-bold uppercase text-sm px-3 py-1">
+                Permanent pass
+              </p>
+            )}
 
             {result.ticketType === "student" && (
               <p className="my-2 inline-block bg-[#FF0099] text-black font-bold uppercase text-sm px-3 py-1">

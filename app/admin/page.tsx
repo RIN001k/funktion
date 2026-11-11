@@ -14,8 +14,10 @@ export default async function AdminPage() {
   // Guest passes (free, created by hand) are real tickets for the door
   // scanner but not sales — keep them out of every sales number here.
   const all: Ticket[] = tickets || [];
+  const isPass = (t: Ticket) =>
+    t.ticket_type === "guest" || t.ticket_type === "staff";
   const guests = all.filter((t) => t.ticket_type === "guest");
-  const list = all.filter((t) => t.ticket_type !== "guest");
+  const list = all.filter((t) => !isPass(t));
   const groups = groupByEvent(list);
 
   return (

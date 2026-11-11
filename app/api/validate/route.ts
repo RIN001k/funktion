@@ -23,6 +23,21 @@ export async function POST(req: NextRequest) {
   // they've been to previous events by this organizer.
   const previousEvents = await getPreviousEvents(ticket.email, ticket.id);
 
+  // Permanent pass (ticket_type "staff"): valid at every event and never
+  // used up. We only log the time of the latest scan.
+  if (ticket.ticket_type === "staff") {
+    await supabaseAdmin
+      .from("tickets")
+      .update({ checked_in_at: new Date().toISOString() })
+      .eq("id", ticket.id);
+    return NextResponse.json({
+      valid: true,
+      name: ticket.name,
+      age: ticket.age,
+      ticketType: "staff",
+    });
+  }
+
   if (ticket.status === "used") {
     return NextResponse.json({
       valid: false,

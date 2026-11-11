@@ -31,7 +31,7 @@ export async function generateTicketPdf(params: {
   eventName: string;
   eventDate: string;
   qrToken: string;
-  ticketType?: "presale" | "student" | "regular" | "guest";
+  ticketType?: "presale" | "student" | "regular" | "guest" | "staff";
 }): Promise<Buffer> {
   const { qrPng, name, eventName, eventDate, qrToken } = params;
   const isStudent = params.ticketType === "student";
@@ -92,6 +92,8 @@ export async function generateTicketPdf(params: {
     ? "PRESALE TICKET"
     : params.ticketType === "guest"
     ? "GUEST PASS"
+    : params.ticketType === "staff"
+    ? "PERMANENT PASS — ALL EVENTS"
     : "STANDARD TICKET";
   const typeSize = 10;
   const typeWidth = helveticaBold.widthOfTextAtSize(typeText, typeSize);

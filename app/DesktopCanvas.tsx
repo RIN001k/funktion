@@ -98,7 +98,7 @@ const VERTICAL_NUMBERS: [string, number][] = [
   ["01", 915], ["26", 956], ["27", 992],
 ];
 
-export default function DesktopCanvas() {
+export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolean }) {
   return (
     <ScaledCanvas width={DESIGN_WIDTH} height={DESIGN_HEIGHT}>
       <div style={{ position: "relative", width: DESIGN_WIDTH, height: DESIGN_HEIGHT, background: "#FFFFFF" }}>
@@ -169,7 +169,9 @@ export default function DesktopCanvas() {
           NEXT EVENT:{"\n"}FRIDAY 13TH PARTY{"\n"}13.11.2026{"\n"}FRITZ CLUB
         </T>
         <T left={470} top={930} width={220} weight={600} size={11} lh={13}>
-          TICKETS AVAILABLE NOW{"\n"}LIMITED CAPACITY{"\n"}GET YOURS EARLY
+          {salesOpen
+            ? "TICKETS AVAILABLE NOW\nLIMITED CAPACITY\nGET YOURS EARLY"
+            : "ONLINE SALES CLOSED\nTICKETS AVAILABLE\nAT THE DOOR"}
         </T>
 
         {/* WHAT'S NEXT */}

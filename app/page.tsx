@@ -5,6 +5,7 @@ import AboutTextCollage from "./AboutTextCollage";
 import IndexRule from "./IndexRule";
 import DesktopCanvas from "./DesktopCanvas";
 import TicketChooser from "./TicketChooser";
+import { SALES_OPEN } from "@/lib/tickets";
 
 const INTRO_PARAGRAPH =
   "friday the 13th at fritz club! it’s our last club funktion of the year, with a night full of your favorite pop hits. dress up as whoever (or whatever) you want and get ready for good music, drinks and dancing all night.";
@@ -124,7 +125,7 @@ export default function HomePage() {
 
       {/* ============================= DESKTOP ============================= */}
       <div className="hidden md:block">
-        <DesktopCanvas />
+        <DesktopCanvas salesOpen={SALES_OPEN} />
       </div>
 
       <TicketChooser />

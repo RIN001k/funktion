@@ -1,3 +1,5 @@
+import { SALES_OPEN } from "@/lib/tickets";
+
 export default function EventTickerBar() {
   return (
     <div className="flex items-center gap-4 py-3">
@@ -18,9 +20,19 @@ export default function EventTickerBar() {
           <p>Fritz Club</p>
         </div>
         <div>
-          <p>Tickets Available Now</p>
-          <p>Limited Capacity</p>
-          <p>Get Yours Early</p>
+          {SALES_OPEN ? (
+            <>
+              <p>Tickets Available Now</p>
+              <p>Limited Capacity</p>
+              <p>Get Yours Early</p>
+            </>
+          ) : (
+            <>
+              <p>Online Sales Closed</p>
+              <p>Tickets Available</p>
+              <p>At The Door</p>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -6,6 +6,18 @@ import { openTicketChooser } from "./TicketChooser";
 const DESIGN_WIDTH = 1440;
 const DESIGN_HEIGHT = 3629;
 
+// The canvas is scaled with a CSS transform inside an overflow:hidden box,
+// which makes the browser's own "#anchor" jump land on the wrong spot on
+// any window narrower than the 1440px design. So the nav scrolls the page
+// itself, to the real on-screen position of the target.
+function goTo(e: React.MouseEvent, id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  e.preventDefault();
+  const top = el.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 function T({
   left,
   top,
@@ -20,6 +32,7 @@ function T({
   tracking,
   opacity,
   href,
+  onClick,
   children,
 }: {
   left: number;
@@ -35,6 +48,7 @@ function T({
   tracking?: string;
   opacity?: number;
   href?: string;
+  onClick?: (e: React.MouseEvent) => void;
   children: React.ReactNode;
 }) {
   const style: React.CSSProperties = {
@@ -56,7 +70,7 @@ function T({
   };
   if (href) {
     return (
-      <a href={href} style={{ ...style, display: "block" }}>
+      <a href={href} onClick={onClick} style={{ ...style, display: "block" }}>
         {children}
       </a>
     );
@@ -102,6 +116,14 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
   return (
     <ScaledCanvas width={DESIGN_WIDTH} height={DESIGN_HEIGHT}>
       <div style={{ position: "relative", width: DESIGN_WIDTH, height: DESIGN_HEIGHT, background: "#FFFFFF" }}>
+        {/* Scroll targets for the nav links. The mobile layout (hidden on
+            desktop) already uses #whats-next / #about / #contact, so these
+            have their own ids. They sit inside the scaled canvas, so the
+            browser scrolls to the right spot at any window width. */}
+        <div id="d-whats-next" style={{ position: "absolute", left: 0, top: 1040, width: 1, height: 1 }} />
+        <div id="d-about" style={{ position: "absolute", left: 0, top: 2005, width: 1, height: 1 }} />
+        <div id="d-contact" style={{ position: "absolute", left: 0, top: 3070, width: 1, height: 1 }} />
+
         {/* Wordmark + nav */}
         <T href="#top" left={40} top={230} width={480} weight={700} size={44.8} lh={54}>
           THE FUNKTION
@@ -109,13 +131,13 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
         <T href="#top" left={40} top={345} width={340} weight={700} size={31.36} lh={38}>
           HOME ★
         </T>
-        <T href="#whats-next" left={40} top={417} width={340} weight={400} size={31.36} lh={38}>
+        <T href="#d-whats-next" onClick={(e) => goTo(e, "d-whats-next")} left={40} top={417} width={340} weight={400} size={31.36} lh={38}>
           WHAT&apos;S NEXT
         </T>
-        <T href="#about" left={40} top={488} width={340} weight={400} size={31.36} lh={38}>
+        <T href="#d-about" onClick={(e) => goTo(e, "d-about")} left={40} top={488} width={340} weight={400} size={31.36} lh={38}>
           ABOUT
         </T>
-        <T href="#contact" left={40} top={560} width={340} weight={400} size={31.36} lh={38}>
+        <T href="#d-contact" onClick={(e) => goTo(e, "d-contact")} left={40} top={560} width={340} weight={400} size={31.36} lh={38}>
           CONTACT
         </T>
 

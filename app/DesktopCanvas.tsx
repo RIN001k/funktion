@@ -160,7 +160,7 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
             top: 934,
             width: 72,
             height: 60,
-            backgroundImage: "url(/gallery/v3/f13-thumb.jpg)",
+            backgroundImage: "url(/gallery/v4/techno-thumb.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

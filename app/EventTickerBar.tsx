@@ -5,7 +5,7 @@ export default function EventTickerBar() {
     <div className="flex items-center gap-4 py-3">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/gallery/v3/f13-thumb.jpg"
+        src="/gallery/v4/techno-thumb.jpg"
         alt=""
         aria-hidden
         className="w-7 h-7 object-cover shrink-0"

@@ -166,7 +166,7 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
           }}
         />
         <T left={130} top={930} width={260} weight={600} size={11} lh={13}>
-          NEXT EVENT:{"\n"}FRIDAY 13TH PARTY{"\n"}13.11.2026{"\n"}FRITZ CLUB
+          NEXT EVENT:{"\n"}TECHNO{"\n"}20.11.2026{"\n"}WOHNZIMMER BAR
         </T>
         <T left={470} top={930} width={220} weight={600} size={11} lh={13}>
           {salesOpen
@@ -190,12 +190,11 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
           align="center"
           transform="lowercase"
         >
-          friday the 13th at fritz club! it&apos;s our last club funktion of
-          the year, with a night full of your favorite pop hits. dress up as
-          whoever (or whatever) you want and get ready for good music, drinks
-          and dancing all night.
+          november 20th, 9pm at wohnzimmer bar! our very first techno-only
+          funktion together with draussen drinnen! expect bouncy beats and
+          groovy rhythms.
         </T>
-        <T left={702} top={1337} weight={400} size={18} lh={22} color="#0A0A0A">
+        <T left={702} top={1320} weight={400} size={18} lh={22} color="#0A0A0A">
           —
         </T>
 
@@ -207,7 +206,7 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
             top: 1430,
             width: 360,
             height: 386,
-            backgroundImage: "url(/gallery/v3/f13-1.jpg)",
+            backgroundImage: "url(/gallery/v4/techno-1.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -219,7 +218,7 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
             top: 1430,
             width: 360,
             height: 386,
-            backgroundImage: "url(/gallery/v3/f13-2.jpg)",
+            backgroundImage: "url(/gallery/v4/techno-2.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -231,7 +230,7 @@ export default function DesktopCanvas({ salesOpen = true }: { salesOpen?: boolea
             top: 1430,
             width: 360,
             height: 386,
-            backgroundImage: "url(/gallery/v3/f13-3.jpg)",
+            backgroundImage: "url(/gallery/v4/techno-3.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

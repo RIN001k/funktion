@@ -15,9 +15,9 @@ export default function EventTickerBar() {
       <div className="flex-1 grid grid-cols-2 gap-4 items-start text-[9px] font-semibold uppercase leading-[1.2]">
         <div>
           <p>Next Event:</p>
-          <p>Friday 13th Party</p>
-          <p>13.11.2026</p>
-          <p>Fritz Club</p>
+          <p>Techno</p>
+          <p>20.11.2026</p>
+          <p>Wohnzimmer Bar</p>
         </div>
         <div>
           {SALES_OPEN ? (

@@ -8,7 +8,7 @@ import TicketChooser from "./TicketChooser";
 import { SALES_OPEN } from "@/lib/tickets";
 
 const INTRO_PARAGRAPH =
-  "friday the 13th at fritz club! it’s our last club funktion of the year, with a night full of your favorite pop hits. dress up as whoever (or whatever) you want and get ready for good music, drinks and dancing all night.";
+  "november 20th, 9pm at wohnzimmer bar! our very first techno-only funktion together with draussen drinnen! expect bouncy beats and groovy rhythms.";
 
 export default function HomePage() {
   return (
@@ -61,11 +61,11 @@ export default function HomePage() {
           <p className="text-center mb-10">—</p>
 
           <div className="grid grid-cols-3 gap-1 mb-6">
-            {["f13-1", "f13-2", "f13-3"].map((f) => (
+            {["techno-1", "techno-2", "techno-3"].map((f) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={f}
-                src={`/gallery/v3/${f}.jpg`}
+                src={`/gallery/v4/${f}.jpg`}
                 alt="THE FUNKTION — club night"
                 className="w-full aspect-[576/618] object-cover"
               />
